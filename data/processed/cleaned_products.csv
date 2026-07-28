@@ -1,0 +1,151 @@
+product_id,category_id,product_name,price,cost,stock_quantity,base_profit_margin_pct
+PRD_0001,CAT_02,Mechanical Keyboard - Mod 859,283.76,121.48,387,57.19
+PRD_0002,CAT_02,Laptop Stand Aluminum - Mod 858,808.34,307.52,226,61.96
+PRD_0003,CAT_01,Pro Wireless Earbuds - Mod 195,235.83,124.25,23,47.31
+PRD_0004,CAT_09,Strategy Board Game - Mod 833,136.97,74.06,122,45.93
+PRD_0005,CAT_08,GPS Cycling Computer - Mod 384,289.01,101.81,422,64.77
+PRD_0006,CAT_03,Performance Hoodie - Mod 532,81.24,32.85,500,59.56
+PRD_0007,CAT_06,Hydrating Face Serum - Mod 194,38.45,18.29,186,52.43
+PRD_0008,CAT_10,Car Dash Cam 4K - Mod 926,27.81,14.21,73,48.9
+PRD_0009,CAT_07,Mastering Python & SQL - Mod 665,32.63,18.6,463,43.0
+PRD_0010,CAT_06,UV Sunscreen SPF 50+ - Mod 296,60.2,22.04,126,63.39
+PRD_0011,CAT_05,Espresso Coffee Machine - Mod 975,104.48,40.26,152,61.47
+PRD_0012,CAT_08,Resistance Bands Pack - Mod 266,148.45,62.84,146,57.67
+PRD_0013,CAT_02,NVMe SSD 1TB - Mod 750,195.46,118.29,93,39.48
+PRD_0014,CAT_08,Insulated Hydro Water Bottle - Mod 376,346.64,198.97,295,42.6
+PRD_0015,CAT_04,Air Cushion Sneakers - Mod 963,158.29,58.5,430,63.04
+PRD_0016,CAT_01,Action Camera - Mod 423,390.98,145.9,477,62.68
+PRD_0017,CAT_10,Car Dash Cam 4K - Mod 317,137.97,67.39,478,51.16
+PRD_0018,CAT_08,Adjustable Dumbbell Set - Mod 371,74.67,45.6,285,38.93
+PRD_0019,CAT_05,Stainless Steel Knife Set - Mod 698,167.09,92.61,195,44.57
+PRD_0020,CAT_04,Leather Oxford Dress Shoes - Mod 621,108.82,66.87,450,38.55
+PRD_0021,CAT_02,Ergonomic Gaming Mouse - Mod 742,185.97,109.38,315,41.18
+PRD_0022,CAT_02,"UltraWide Monitor 34"" - Mod 490",556.5,285.94,138,48.62
+PRD_0023,CAT_09,STEM Robotics Kit - Mod 796,149.72,88.12,284,41.14
+PRD_0024,CAT_05,Stainless Steel Knife Set - Mod 448,65.69,32.99,242,49.78
+PRD_0025,CAT_01,HD Webcam - Mod 996,661.72,456.69,400,30.98
+PRD_0026,CAT_03,Leather Casual Belt - Mod 208,176.68,80.29,337,54.56
+PRD_0027,CAT_09,3D Puzzle Set - Mod 303,47.5,29.3,286,38.32
+PRD_0028,CAT_09,STEM Robotics Kit - Mod 713,78.34,27.95,485,64.32
+PRD_0029,CAT_06,Argan Oil Hair Mask - Mod 345,16.87,11.09,494,34.26
+PRD_0030,CAT_02,Mechanical Keyboard - Mod 849,463.08,173.3,399,62.58
+PRD_0031,CAT_09,Strategy Board Game - Mod 231,138.75,94.54,94,31.86
+PRD_0032,CAT_05,Cast Iron Skillet Set - Mod 993,224.1,154.07,485,31.25
+PRD_0033,CAT_09,Strategy Board Game - Mod 830,76.1,53.14,342,30.17
+PRD_0034,CAT_06,Organic Body Wash - Mod 629,43.24,18.89,42,56.31
+PRD_0035,CAT_06,Hydrating Face Serum - Mod 702,50.1,27.85,13,44.41
+PRD_0036,CAT_02,Laptop Stand Aluminum - Mod 746,100.03,37.37,26,62.64
+PRD_0037,CAT_06,Hydrating Face Serum - Mod 626,28.94,16.91,119,41.57
+PRD_0038,CAT_09,Strategy Board Game - Mod 840,188.38,103.58,252,45.02
+PRD_0039,CAT_04,Lightweight Sandals - Mod 926,93.26,35.72,347,61.7
+PRD_0040,CAT_07,Deep Learning Fundamentals - Mod 533,40.53,26.44,37,34.76
+PRD_0041,CAT_02,Mechanical Keyboard - Mod 512,668.97,421.59,65,36.98
+PRD_0042,CAT_04,Leather Oxford Dress Shoes - Mod 294,116.52,46.5,103,60.09
+PRD_0043,CAT_05,Memory Foam Pillow - Mod 355,309.83,116.62,423,62.36
+PRD_0044,CAT_09,STEM Robotics Kit - Mod 151,137.38,74.08,17,46.08
+PRD_0045,CAT_02,Wireless Router Wi-Fi 6E - Mod 969,250.91,123.51,256,50.78
+PRD_0046,CAT_04,Lightweight Sandals - Mod 160,49.62,17.4,209,64.93
+PRD_0047,CAT_05,Memory Foam Pillow - Mod 392,165.35,113.27,411,31.5
+PRD_0048,CAT_09,Wooden Building Blocks - Mod 258,54.17,23.09,39,57.37
+PRD_0049,CAT_10,Microfiber Towel Set - Mod 162,154.63,57.21,309,63.0
+PRD_0050,CAT_08,GPS Cycling Computer - Mod 973,199.95,73.96,270,63.01
+PRD_0051,CAT_02,Wireless Router Wi-Fi 6E - Mod 290,108.23,40.45,451,62.63
+PRD_0052,CAT_04,Lightweight Sandals - Mod 222,189.48,104.1,306,45.06
+PRD_0053,CAT_10,Digital Tire Inflaters - Mod 734,34.75,20.16,299,41.99
+PRD_0054,CAT_09,Remote Control Drone - Mod 367,56.76,34.09,132,39.94
+PRD_0055,CAT_05,Memory Foam Pillow - Mod 234,244.93,111.44,171,54.5
+PRD_0056,CAT_02,Mechanical Keyboard - Mod 569,577.98,316.18,61,45.3
+PRD_0057,CAT_02,NVMe SSD 1TB - Mod 318,479.99,190.25,188,60.36
+PRD_0058,CAT_02,Ergonomic Gaming Mouse - Mod 478,292.23,147.1,288,49.66
+PRD_0059,CAT_05,Cast Iron Skillet Set - Mod 926,239.26,84.4,428,64.72
+PRD_0060,CAT_09,Remote Control Drone - Mod 779,38.64,25.4,145,34.27
+PRD_0061,CAT_02,Mechanical Keyboard - Mod 860,520.23,231.67,319,55.47
+PRD_0062,CAT_04,Air Cushion Sneakers - Mod 308,143.74,93.22,268,35.15
+PRD_0063,CAT_08,Resistance Bands Pack - Mod 966,46.25,26.45,434,42.81
+PRD_0064,CAT_05,Espresso Coffee Machine - Mod 103,136.73,54.12,144,60.42
+PRD_0065,CAT_03,Performance Hoodie - Mod 552,119.29,59.61,14,50.03
+PRD_0066,CAT_02,Mechanical Keyboard - Mod 807,818.33,442.68,437,45.9
+PRD_0067,CAT_06,UV Sunscreen SPF 50+ - Mod 665,22.91,9.04,167,60.54
+PRD_0068,CAT_06,Hydrating Face Serum - Mod 466,27.07,11.84,62,56.26
+PRD_0069,CAT_06,UV Sunscreen SPF 50+ - Mod 995,40.22,22.81,89,43.29
+PRD_0070,CAT_04,Leather Oxford Dress Shoes - Mod 919,165.93,109.26,22,34.15
+PRD_0071,CAT_03,Performance Hoodie - Mod 440,160.82,79.46,352,50.59
+PRD_0072,CAT_04,Air Cushion Sneakers - Mod 263,161.72,62.72,456,61.22
+PRD_0073,CAT_01,Action Camera - Mod 581,239.06,152.0,245,36.42
+PRD_0074,CAT_06,Argan Oil Hair Mask - Mod 940,66.28,28.48,22,57.03
+PRD_0075,CAT_04,Lightweight Sandals - Mod 436,70.14,26.25,405,62.57
+PRD_0076,CAT_05,Robot Vacuum Cleaner - Mod 756,193.0,113.45,441,41.22
+PRD_0077,CAT_09,Remote Control Drone - Mod 128,40.75,28.1,101,31.04
+PRD_0078,CAT_10,Car Dash Cam 4K - Mod 139,39.5,19.83,383,49.8
+PRD_0079,CAT_06,Organic Body Wash - Mod 720,78.93,30.82,470,60.95
+PRD_0080,CAT_10,OBD2 Scanner Diagnostic - Mod 360,27.98,14.06,276,49.75
+PRD_0081,CAT_09,Strategy Board Game - Mod 472,97.62,66.59,481,31.79
+PRD_0082,CAT_06,UV Sunscreen SPF 50+ - Mod 421,57.44,22.61,470,60.64
+PRD_0083,CAT_05,Cast Iron Skillet Set - Mod 416,243.4,112.98,366,53.58
+PRD_0084,CAT_05,Cast Iron Skillet Set - Mod 230,91.38,53.25,204,41.73
+PRD_0085,CAT_03,Leather Casual Belt - Mod 682,74.16,40.18,10,45.82
+PRD_0086,CAT_05,Robot Vacuum Cleaner - Mod 315,167.55,92.65,345,44.7
+PRD_0087,CAT_06,Organic Body Wash - Mod 552,42.61,18.1,252,57.52
+PRD_0088,CAT_03,Performance Hoodie - Mod 186,71.07,41.39,327,41.76
+PRD_0089,CAT_06,Hydrating Face Serum - Mod 938,76.77,33.18,168,56.78
+PRD_0090,CAT_04,Leather Oxford Dress Shoes - Mod 250,24.39,10.63,253,56.42
+PRD_0091,CAT_10,Digital Tire Inflaters - Mod 566,94.59,53.96,109,42.95
+PRD_0092,CAT_07,The Art of Clean Architecture - Mod 509,29.34,17.01,12,42.02
+PRD_0093,CAT_02,Wireless Router Wi-Fi 6E - Mod 535,236.0,149.02,366,36.86
+PRD_0094,CAT_09,Wooden Building Blocks - Mod 151,120.32,80.75,72,32.89
+PRD_0095,CAT_08,Adjustable Dumbbell Set - Mod 920,178.68,95.75,296,46.41
+PRD_0096,CAT_10,Car Dash Cam 4K - Mod 873,180.45,101.85,378,43.56
+PRD_0097,CAT_09,Wooden Building Blocks - Mod 950,183.22,92.72,91,49.39
+PRD_0098,CAT_08,Insulated Hydro Water Bottle - Mod 365,270.56,174.23,151,35.6
+PRD_0099,CAT_09,Wooden Building Blocks - Mod 741,63.05,31.77,375,49.61
+PRD_0100,CAT_05,Air Fryer XL 5.8Qt - Mod 378,137.46,91.08,51,33.74
+PRD_0101,CAT_03,Slim Fit Denim Jeans - Mod 336,88.94,35.89,119,59.65
+PRD_0102,CAT_02,"UltraWide Monitor 34"" - Mod 517",331.24,169.95,41,48.69
+PRD_0103,CAT_04,Lightweight Sandals - Mod 498,182.86,101.38,366,44.56
+PRD_0104,CAT_01,Action Camera - Mod 883,539.33,278.8,492,48.31
+PRD_0105,CAT_06,Argan Oil Hair Mask - Mod 871,39.12,25.9,437,33.79
+PRD_0106,CAT_07,SaaS Business Secrets - Mod 865,62.21,39.19,469,37.0
+PRD_0107,CAT_04,Lightweight Sandals - Mod 324,69.12,35.94,209,48.0
+PRD_0108,CAT_06,Organic Body Wash - Mod 841,24.05,12.35,75,48.65
+PRD_0109,CAT_10,Microfiber Towel Set - Mod 127,183.24,102.09,349,44.29
+PRD_0110,CAT_01,Pro Wireless Earbuds - Mod 758,414.31,270.71,103,34.66
+PRD_0111,CAT_01,Noise Cancelling Headphones - Mod 488,328.24,167.12,182,49.09
+PRD_0112,CAT_07,Deep Learning Fundamentals - Mod 870,76.72,38.17,437,50.25
+PRD_0113,CAT_02,"UltraWide Monitor 34"" - Mod 119",686.66,252.85,497,63.18
+PRD_0114,CAT_06,Electric Toothbrush Pro - Mod 765,17.59,12.05,30,31.5
+PRD_0115,CAT_01,Smart 4K TV - Mod 304,763.33,433.16,132,43.25
+PRD_0116,CAT_03,Designer Sunglasses - Mod 785,40.58,27.66,248,31.84
+PRD_0117,CAT_05,Robot Vacuum Cleaner - Mod 271,223.88,153.87,377,31.27
+PRD_0118,CAT_02,Wireless Router Wi-Fi 6E - Mod 938,189.19,86.81,306,54.11
+PRD_0119,CAT_01,Noise Cancelling Headphones - Mod 689,625.74,428.86,213,31.46
+PRD_0120,CAT_04,Trail Running Shoes - Mod 706,144.3,82.18,62,43.05
+PRD_0121,CAT_05,Stainless Steel Knife Set - Mod 714,287.76,180.91,299,37.13
+PRD_0122,CAT_01,Noise Cancelling Headphones - Mod 645,414.11,198.65,269,52.03
+PRD_0123,CAT_06,Hydrating Face Serum - Mod 969,41.13,21.45,231,47.85
+PRD_0124,CAT_06,Organic Body Wash - Mod 824,23.24,9.57,277,58.82
+PRD_0125,CAT_05,Cast Iron Skillet Set - Mod 927,324.27,201.41,248,37.89
+PRD_0126,CAT_07,SaaS Business Secrets - Mod 374,34.58,15.07,488,56.42
+PRD_0127,CAT_02,USB-C Hub Hub Pro - Mod 561,257.27,131.89,322,48.73
+PRD_0128,CAT_07,Deep Learning Fundamentals - Mod 129,46.11,21.38,259,53.63
+PRD_0129,CAT_04,Air Cushion Sneakers - Mod 916,66.49,29.78,315,55.21
+PRD_0130,CAT_05,Cast Iron Skillet Set - Mod 110,195.31,81.42,133,58.31
+PRD_0131,CAT_07,The Art of Clean Architecture - Mod 668,63.79,37.75,340,40.82
+PRD_0132,CAT_08,Insulated Hydro Water Bottle - Mod 911,35.51,16.09,217,54.69
+PRD_0133,CAT_04,Air Cushion Sneakers - Mod 779,124.67,64.28,281,48.44
+PRD_0134,CAT_06,Organic Body Wash - Mod 863,49.87,23.6,242,52.68
+PRD_0135,CAT_05,Robot Vacuum Cleaner - Mod 357,103.76,62.51,171,39.76
+PRD_0136,CAT_02,Laptop Stand Aluminum - Mod 648,858.24,507.7,108,40.84
+PRD_0137,CAT_04,Lightweight Sandals - Mod 383,150.42,104.06,278,30.82
+PRD_0138,CAT_10,Car Dash Cam 4K - Mod 202,169.86,77.06,194,54.63
+PRD_0139,CAT_03,Winter Fleece Jacket - Mod 114,147.43,58.13,33,60.57
+PRD_0140,CAT_01,Smartwatch Ultra - Mod 399,642.79,253.39,454,60.58
+PRD_0141,CAT_08,Non-Slip Yoga Mat - Mod 993,33.91,15.24,255,55.06
+PRD_0142,CAT_08,Resistance Bands Pack - Mod 288,338.95,148.58,451,56.16
+PRD_0143,CAT_08,Non-Slip Yoga Mat - Mod 941,50.9,26.58,305,47.78
+PRD_0144,CAT_01,Smart 4K TV - Mod 252,739.46,504.46,53,31.78
+PRD_0145,CAT_04,Trail Running Shoes - Mod 671,157.59,88.6,414,43.78
+PRD_0146,CAT_10,OBD2 Scanner Diagnostic - Mod 894,114.05,57.9,236,49.23
+PRD_0147,CAT_05,Cast Iron Skillet Set - Mod 539,127.71,72.46,322,43.26
+PRD_0148,CAT_02,Wireless Router Wi-Fi 6E - Mod 312,581.68,257.47,51,55.74
+PRD_0149,CAT_03,Slim Fit Denim Jeans - Mod 277,119.35,48.31,219,59.52
+PRD_0150,CAT_08,GPS Cycling Computer - Mod 581,123.19,53.1,371,56.9
