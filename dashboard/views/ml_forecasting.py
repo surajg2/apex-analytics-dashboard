@@ -16,6 +16,10 @@ def render_ml_forecasting_view(daily_df: pd.DataFrame):
     st.markdown('<div class="section-header">Supervised ML Sales & Revenue Forecasting</div>', unsafe_allow_html=True)
     st.markdown('<div class="section-subheader">Predict future daily revenue trajectory, holiday demand surges, and confidence bands using machine learning algorithms.</div>', unsafe_allow_html=True)
 
+    if daily_df.empty:
+        st.warning("⚠️ No orders found matching the selected date range and global filters. Please select dates between 2021 and 2024 or click 'Reset Global Filters'.")
+        return
+
     col_ctrl1, col_ctrl2 = st.columns(2)
     with col_ctrl1:
         model_choice = st.selectbox(

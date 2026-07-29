@@ -12,6 +12,10 @@ def render_product_inventory_view(df_master: pd.DataFrame, df_products: pd.DataF
     st.markdown('<div class="section-header">Product Performance & Inventory Intelligence</div>', unsafe_allow_html=True)
     st.markdown('<div class="section-subheader">Identify high-margin winners, underperforming products, category profitability, and overstocked inventory alerts.</div>', unsafe_allow_html=True)
 
+    if df_master.empty:
+        st.warning("⚠️ No orders found matching the selected date range and global filters. Please select dates between 2021 and 2024 or click 'Reset Global Filters'.")
+        return
+
     valid_df = df_master[df_master["order_status"] != "Cancelled"]
 
     # 1. Product Sales Summary

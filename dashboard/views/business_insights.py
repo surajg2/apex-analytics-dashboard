@@ -11,6 +11,10 @@ def render_business_insights_view(df_master: pd.DataFrame, rfm_df: pd.DataFrame)
     st.markdown('<div class="section-header">Executive Insights & Strategic Recommendations</div>', unsafe_allow_html=True)
     st.markdown('<div class="section-subheader">Data-driven business recommendations for C-suite leadership, CMOs, supply chain directors, and category managers.</div>', unsafe_allow_html=True)
 
+    if df_master.empty:
+        st.warning("⚠️ No orders found matching the selected date range and global filters. Please select dates between 2021 and 2024 or click 'Reset Global Filters'.")
+        return
+
     # 1. Executive Summary
     st.markdown("### 🎯 Strategic Imperatives & Growth Levers")
 

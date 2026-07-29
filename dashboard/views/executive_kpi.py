@@ -17,6 +17,10 @@ def render_executive_kpi_view(df_master: pd.DataFrame, daily_df: pd.DataFrame, r
     st.markdown('<div class="section-header">Executive Summary & SaaS KPI Dashboard</div>', unsafe_allow_html=True)
     st.markdown('<div class="section-subheader">Real-time performance indicators across revenue, customer acquisition, order volume, and margins.</div>', unsafe_allow_html=True)
 
+    if df_master.empty or daily_df.empty:
+        st.warning("⚠️ No orders found matching the selected date range and global filters. Please select dates between 2021 and 2024 or click 'Reset Global Filters'.")
+        return
+
     # Filter out cancelled orders for KPI calculations
     valid_df = df_master[df_master["order_status"] != "Cancelled"]
 

@@ -13,6 +13,10 @@ def render_customer_rfm_view(df_master: pd.DataFrame, rfm_df: pd.DataFrame):
     st.markdown('<div class="section-header">Customer Lifetime Value & RFM Segmentation</div>', unsafe_allow_html=True)
     st.markdown('<div class="section-subheader">Recency, Frequency, and Monetary (RFM) modeling, cohort retention decay, and churn risk scoring.</div>', unsafe_allow_html=True)
 
+    if df_master.empty:
+        st.warning("⚠️ No orders found matching the selected date range and global filters. Please select dates between 2021 and 2024 or click 'Reset Global Filters'.")
+        return
+
     # 1. RFM Segment Distribution Cards
     seg_counts = rfm_df["rfm_segment"].value_counts().reset_index()
     seg_counts.columns = ["rfm_segment", "customer_count"]

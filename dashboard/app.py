@@ -41,10 +41,11 @@ load_css()
 # 3. Data Loader with Caching
 @st.cache_data(ttl=3600)
 def load_dashboard_data():
-    fact_path = "data/processed/master_fact_table.csv"
-    daily_path = "data/processed/daily_sales_series.csv"
-    rfm_path = "data/processed/rfm_customer_segments.csv"
-    prod_path = "data/processed/cleaned_products.csv"
+    base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+    fact_path = os.path.join(base_dir, "data", "processed", "master_fact_table.csv")
+    daily_path = os.path.join(base_dir, "data", "processed", "daily_sales_series.csv")
+    rfm_path = os.path.join(base_dir, "data", "processed", "rfm_customer_segments.csv")
+    prod_path = os.path.join(base_dir, "data", "processed", "cleaned_products.csv")
 
     if not os.path.exists(fact_path):
         from seed_data import main as run_seed
@@ -94,16 +95,33 @@ st.sidebar.markdown("### 🎛️ GLOBAL FILTERS")
 min_date = df_master["order_date"].min().date()
 max_date = df_master["order_date"].max().date()
 
-start_date, end_date = st.sidebar.date_input(
+# Reset Filters Button
+if st.sidebar.button("🔄 Reset Global Filters", key="reset_filters"):
+    st.session_state["date_filter"] = (min_date, max_date)
+    st.session_state["dept_filter"] = "All"
+    st.rerun()
+
+default_dates = st.session_state.get("date_filter", (min_date, max_date))
+
+date_range = st.sidebar.date_input(
     "Order Date Range:",
-    value=[min_date, max_date],
-    min_value=min_date,
-    max_value=max_date
+    value=default_dates
 )
+
+if isinstance(date_range, (list, tuple)) and len(date_range) == 2:
+    d1, d2 = date_range
+    start_date = min(d1, d2)
+    end_date = max(d1, d2)
+elif isinstance(date_range, (list, tuple)) and len(date_range) == 1:
+    start_date = end_date = date_range[0]
+else:
+    start_date, end_date = min_date, max_date
 
 # Global Department Filter
 departments = ["All"] + sorted(df_master["department"].dropna().unique().tolist())
-selected_dept = st.sidebar.selectbox("Department:", departments)
+default_dept = st.session_state.get("dept_filter", "All")
+dept_idx = departments.index(default_dept) if default_dept in departments else 0
+selected_dept = st.sidebar.selectbox("Department:", departments, index=dept_idx)
 
 # Apply Global Filters to DataFrames
 filtered_master = df_master[

@@ -13,6 +13,10 @@ def render_sales_analytics_view(df_master: pd.DataFrame, daily_df: pd.DataFrame)
     st.markdown('<div class="section-header">Exploratory Sales & Payment Analytics</div>', unsafe_allow_html=True)
     st.markdown('<div class="section-subheader">Deep-dive into sales seasonality, day-of-week purchase velocity, payment dynamics, and shipping SLAs.</div>', unsafe_allow_html=True)
 
+    if df_master.empty or daily_df.empty:
+        st.warning("⚠️ No orders found matching the selected date range and global filters. Please select dates between 2021 and 2024 or click 'Reset Global Filters'.")
+        return
+
     valid_df = df_master[df_master["order_status"] != "Cancelled"].copy()
     valid_df["order_date"] = pd.to_datetime(valid_df["order_date"], format="mixed", errors="coerce")
 
@@ -50,7 +54,7 @@ def render_sales_analytics_view(df_master: pd.DataFrame, daily_df: pd.DataFrame)
             overlaying="y",
             side="right",
             showgrid=False,
-            font=dict(color="#f43f5e")
+            color="#f43f5e"
         )
     )
     fig_mom = update_dark_layout(fig_mom, title="Monthly Revenue Trajectory & MoM Growth Rate (%)", height=400)
