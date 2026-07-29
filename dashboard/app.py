@@ -45,7 +45,7 @@ def apply_theme(theme_choice="🌌 Midnight Slate (Executive Dark)"):
                 --bg-card: #ffffff !important;
                 --border-card: #e2e8f0 !important;
                 --text-primary: #0f172a !important;
-                --text-secondary: #475569 !important;
+                --text-secondary: #334155 !important;
                 --shadow-card: 0 4px 20px 0 rgba(0, 0, 0, 0.06) !important;
                 --accent-blue: #2563eb !important;
                 --tab-bg: #f1f5f9 !important;
@@ -53,10 +53,28 @@ def apply_theme(theme_choice="🌌 Midnight Slate (Executive Dark)"):
             }
             .stApp { background-color: #f8fafc !important; color: #0f172a !important; }
             .section-header { color: #0f172a !important; }
-            .section-subheader { color: #475569 !important; }
+            .section-subheader { color: #334155 !important; }
             .metric-value { color: #0f172a !important; }
-            .metric-title { color: #475569 !important; }
+            .metric-title { color: #334155 !important; }
             .dataframe { background-color: #ffffff !important; color: #0f172a !important; }
+
+            /* Plotly Visualization Labels High-Contrast Override in Light Theme */
+            .js-plotly-plot .plotly .main-svg text,
+            .js-plotly-plot .plotly .gtitle,
+            .js-plotly-plot .plotly .xtick text,
+            .js-plotly-plot .plotly .ytick text,
+            .js-plotly-plot .plotly .legendtext,
+            .js-plotly-plot .plotly .annotation-text,
+            .js-plotly-plot .plotly .xaxis-title,
+            .js-plotly-plot .plotly .yaxis-title,
+            .js-plotly-plot .plotly .slicetext {
+                fill: #0f172a !important;
+                color: #0f172a !important;
+                font-weight: 500 !important;
+            }
+            .js-plotly-plot .plotly .gridlayer path {
+                stroke: rgba(15, 23, 42, 0.1) !important;
+            }
         </style>
         """, unsafe_allow_html=True)
     elif "Emerald" in theme_choice:

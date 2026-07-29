@@ -15,28 +15,37 @@ ACCENT_CORAL = "#f87171"
 DARK_BG = "rgba(15, 23, 42, 0.4)"
 
 def update_dark_layout(fig, title: str = None, height: int = 400):
-    """Applies high-end dark mode aesthetics to Plotly figures."""
+    """Applies high-end responsive aesthetics to Plotly figures based on active theme."""
+    theme_choice = st.session_state.get("theme_selector", "")
+    is_light = "Light" in str(theme_choice)
+
+    template = "plotly_white" if is_light else "plotly_dark"
+    title_color = "#0f172a" if is_light else "#f8fafc"
+    font_color = "#334155" if is_light else "#94a3b8"
+    grid_color = "rgba(15, 23, 42, 0.08)" if is_light else "rgba(255, 255, 255, 0.06)"
+
     fig.update_layout(
-        template="plotly_dark",
+        template=template,
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)",
         height=height,
         margin=dict(l=20, r=20, t=50 if title else 20, b=20),
         title=dict(
             text=title if title else "",
-            font=dict(size=16, family="Inter", color="#f8fafc"),
+            font=dict(size=16, family="Inter", color=title_color),
             x=0.01, y=0.96
         ) if title else None,
-        font=dict(family="Inter", color="#94a3b8"),
-        xaxis=dict(gridcolor="rgba(255, 255, 255, 0.06)", showline=False),
-        yaxis=dict(gridcolor="rgba(255, 255, 255, 0.06)", showline=False),
+        font=dict(family="Inter", color=font_color),
+        xaxis=dict(gridcolor=grid_color, showline=False, tickfont=dict(color=font_color), title_font=dict(color=font_color)),
+        yaxis=dict(gridcolor=grid_color, showline=False, tickfont=dict(color=font_color), title_font=dict(color=font_color)),
         legend=dict(
             orientation="h",
             yanchor="bottom",
             y=1.02,
             xanchor="right",
             x=1,
-            bgcolor="rgba(0,0,0,0)"
+            bgcolor="rgba(0,0,0,0)",
+            font=dict(color=font_color)
         )
     )
     return fig
