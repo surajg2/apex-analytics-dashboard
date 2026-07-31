@@ -16,7 +16,7 @@ def render_business_insights_view(df_master: pd.DataFrame, rfm_df: pd.DataFrame)
         return
 
     # 1. Executive Summary
-    st.markdown("### 🎯 Strategic Imperatives & Growth Levers")
+    st.markdown("### Strategic Imperatives & Growth Levers")
 
     col1, col2 = st.columns(2)
 
@@ -49,7 +49,7 @@ def render_business_insights_view(df_master: pd.DataFrame, rfm_df: pd.DataFrame)
     st.markdown("---")
 
     # 2. Detailed Business Recommendations Matrix
-    st.markdown("### 📋 Tactical Execution Matrix")
+    st.markdown("### Tactical Execution Matrix")
 
     matrix_data = [
         {

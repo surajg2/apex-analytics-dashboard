@@ -25,7 +25,7 @@ def render_ml_forecasting_view(daily_df: pd.DataFrame):
         model_choice = st.selectbox(
             "Select Forecasting Model:",
             ["gradient_boosting", "random_forest", "ridge"],
-            format_func=lambda x: f"🤖 {x.replace('_', ' ').title()}"
+            format_func=lambda x: f"{x.replace('_', ' ').title()}"
         )
     with col_ctrl2:
         forecast_days = st.slider("Forecast Horizon (Days):", min_value=14, max_value=90, value=60, step=7)

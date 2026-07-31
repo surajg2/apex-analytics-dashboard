@@ -87,7 +87,7 @@ def render_product_inventory_view(df_master: pd.DataFrame, df_products: pd.DataF
     st.markdown("---")
 
     # 3. Slow-Moving & Overstocked Inventory Alerts
-    st.markdown("### 🚨 Inventory Health & Overstock Warning Table")
+    st.markdown("### Inventory Health & Overstock Warning Table")
     st.caption("Products with Stock > 120 units and low 90-day sales volume requiring markdown or marketing push.")
 
     slow_moving = prod_summary[

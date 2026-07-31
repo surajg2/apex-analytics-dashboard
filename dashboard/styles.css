@@ -108,13 +108,11 @@ section[data-testid="stSidebar"] .stSlider label {
     padding: 20px 24px;
     margin-bottom: 16px;
     box-shadow: var(--shadow-card);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
 }
 
 .metric-card:hover {
-    transform: translateY(-3px);
     border-color: var(--border-card-hover);
     box-shadow: 0 12px 36px 0 rgba(56, 189, 248, 0.12);
 }

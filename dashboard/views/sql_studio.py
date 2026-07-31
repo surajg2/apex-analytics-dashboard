@@ -21,7 +21,7 @@ def render_sql_studio_view():
         selected_file = st.selectbox(
             "Select SQL Analysis Script:",
             sql_files,
-            format_func=lambda x: f"📜 {x}"
+            format_func=lambda x: str(x)
         )
 
         query_text = ""
@@ -38,7 +38,7 @@ def render_sql_studio_view():
             height=250
         )
 
-        if st.button("▶ Execute SQL Query", type="primary"):
+        if st.button("Execute SQL Query", type="primary"):
             try:
                 res_df = runner.run_query(custom_sql)
                 st.success(f"Query executed successfully! Returned {len(res_df):,} rows.")
@@ -47,7 +47,7 @@ def render_sql_studio_view():
                 # Export CSV button
                 csv_data = res_df.to_csv(index=False).encode('utf-8')
                 st.download_button(
-                    label="📥 Download CSV Export for Power BI",
+                    label="Download CSV Export for Power BI",
                     data=csv_data,
                     file_name=f"sql_export_{selected_file.replace('.sql', '') if selected_file else 'custom'}.csv",
                     mime="text/csv"
