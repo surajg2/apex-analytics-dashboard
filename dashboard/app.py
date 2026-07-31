@@ -131,8 +131,22 @@ except Exception as e:
     df_master, daily_df, rfm_df, df_products = load_dashboard_data()
 
 # 4. Sidebar Navigation & Global Filters
-st.sidebar.markdown("## **ApexAnalytics**")
-st.sidebar.markdown("<span style='color:#64748b; font-size:0.8rem;'>E-COMMERCE SAAS PLATFORM</span>", unsafe_allow_html=True)
+st.sidebar.markdown("""
+<div class="brand-container">
+    <div class="brand-icon-box">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 3v18h18"></path>
+            <path d="M18 17V9"></path>
+            <path d="M13 17V5"></path>
+            <path d="M8 17v-3"></path>
+        </svg>
+    </div>
+    <div>
+        <div class="brand-text">ApexAnalytics</div>
+        <div class="brand-sub">E-Commerce SaaS Executive Platform</div>
+    </div>
+</div>
+""", unsafe_allow_html=True)
 st.sidebar.markdown("---")
 
 # Theme Preset Switcher

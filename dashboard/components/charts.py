@@ -8,11 +8,12 @@ import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
 
-# Custom Dark Palette
+# Custom Executive Palette
 PRIMARY_CYAN = "#38bdf8"
+PRIMARY_INDIGO = "#6366f1"
 SECONDARY_PURPLE = "#818cf8"
-ACCENT_GREEN = "#34d399"
-ACCENT_CORAL = "#f87171"
+ACCENT_GREEN = "#10b981"
+ACCENT_CORAL = "#f43f5e"
 DARK_BG = "rgba(15, 23, 42, 0.4)"
 
 def update_dark_layout(fig, title: str = None, height: int = 400):

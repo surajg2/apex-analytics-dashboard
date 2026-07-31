@@ -1,11 +1,11 @@
 # End-to-End E-Commerce Sales Analytics & SaaS Executive Platform
 
-[![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
-[![Streamlit](https://img.shields.io/badge/Streamlit-1.28%2B-FF4B4B.svg)](https://streamlit.io/)
-[![Plotly](https://img.shields.io/badge/Plotly-5.15%2B-3F4F75.svg)](https://plotly.com/)
-[![SQLite](https://img.shields.io/badge/SQLite-3.0-003B57.svg)](https://www.sqlite.org/)
-[![Power BI](https://img.shields.io/badge/Power_BI-Compatible-F2C811.svg)](https://powerbi.microsoft.com/)
-[![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-ML_Forecasting-F7931E.svg)](https://scikit-learn.org/)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg?logo=python&logoColor=white)](https://www.python.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.28%2B-FF4B4B.svg?logo=streamlit&logoColor=white)](https://streamlit.io/)
+[![Plotly](https://img.shields.io/badge/Plotly-5.15%2B-3F4F75.svg?logo=plotly&logoColor=white)](https://plotly.com/)
+[![SQLite](https://img.shields.io/badge/SQLite-3.0-003B57.svg?logo=sqlite&logoColor=white)](https://www.sqlite.org/)
+[![Power BI](https://img.shields.io/badge/Power_BI-Compatible-F2C811.svg?logo=powerbi&logoColor=black)](https://powerbi.microsoft.com/)
+[![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-ML_Forecasting-F7931E.svg?logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 > A **production-grade, enterprise SaaS E-Commerce Sales Analytics Platform & Executive Dashboard** designed to deliver data-driven business insights, RFM customer segmentation, SQL analytics, cohort retention matrices, and machine learning sales forecasting.
