@@ -1,5 +1,6 @@
 # End-to-End E-Commerce Sales Analytics & SaaS Executive Platform
 
+[![Live App](https://img.shields.io/badge/🚀_Live_Demo-ApexAnalytics-2563eb.svg?style=for-the-badge&logo=streamlit)](https://apex-analytics-dashboard.streamlit.app/)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg?logo=python&logoColor=white)](https://www.python.org/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.28%2B-FF4B4B.svg?logo=streamlit&logoColor=white)](https://streamlit.io/)
 [![Plotly](https://img.shields.io/badge/Plotly-5.15%2B-3F4F75.svg?logo=plotly&logoColor=white)](https://plotly.com/)
@@ -9,6 +10,8 @@
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 > A **production-grade, enterprise SaaS E-Commerce Sales Analytics Platform & Executive Dashboard** designed to deliver data-driven business insights, RFM customer segmentation, SQL analytics, cohort retention matrices, and machine learning sales forecasting.
+
+🌐 **Live Web Application**: [https://apex-analytics-dashboard.streamlit.app/](https://apex-analytics-dashboard.streamlit.app/)
 
 ---
 
