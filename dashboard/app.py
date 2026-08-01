@@ -29,35 +29,37 @@ st.set_page_config(
 )
 
 # 2. Inject CSS Styles & Dynamic Theme Engine
-def apply_theme(theme_choice="🌌 Midnight Slate (Executive Dark)"):
+def apply_theme(theme_mode="🌙 Night", color_palette="💙 Indigo"):
+    is_day = "Day" in str(theme_mode) or "☀️" in str(theme_mode)
+    mode_str = "day" if is_day else "night"
+    
+    if "Emerald" in str(color_palette):
+        pal_str = "emerald"
+    elif "Amethyst" in str(color_palette):
+        pal_str = "amethyst"
+    else:
+        pal_str = "indigo"
+        
+    theme_class = f"theme-{mode_str}-{pal_str}"
+    
     css_path = os.path.join(os.path.dirname(__file__), "styles.css")
     if os.path.exists(css_path):
         with open(css_path, "r", encoding="utf-8") as f:
             st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-    if "Light" in theme_choice:
+    # Inject class override script & dynamic theme rules
+    st.markdown(f"""
+    <script>
+        var body = window.parent.document.querySelector("body");
+        if (body) {{
+            body.className = "{theme_class}";
+        }}
+    </script>
+    """, unsafe_allow_html=True)
+
+    if is_day:
         st.markdown("""
         <style>
-            :root {
-                --bg-main: #f8fafc !important;
-                --bg-sidebar: linear-gradient(180deg, #0f172a 0%, #1e293b 100%) !important;
-                --bg-card: #ffffff !important;
-                --border-card: #e2e8f0 !important;
-                --text-primary: #0f172a !important;
-                --text-secondary: #334155 !important;
-                --shadow-card: 0 4px 20px 0 rgba(0, 0, 0, 0.06) !important;
-                --accent-blue: #2563eb !important;
-                --tab-bg: #f1f5f9 !important;
-                --tab-active-bg: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
-            }
-            .stApp { background-color: #f8fafc !important; color: #0f172a !important; }
-            .section-header { color: #0f172a !important; }
-            .section-subheader { color: #334155 !important; }
-            .metric-value { color: #0f172a !important; }
-            .metric-title { color: #334155 !important; }
-            .dataframe { background-color: #ffffff !important; color: #0f172a !important; }
-
-            /* Plotly Visualization Labels High-Contrast Override in Light Theme */
             .js-plotly-plot .plotly .main-svg text,
             .js-plotly-plot .plotly .gtitle,
             .js-plotly-plot .plotly .xtick text,
@@ -67,35 +69,13 @@ def apply_theme(theme_choice="🌌 Midnight Slate (Executive Dark)"):
             .js-plotly-plot .plotly .xaxis-title,
             .js-plotly-plot .plotly .yaxis-title,
             .js-plotly-plot .plotly .slicetext {
-                fill: #0f172a !important;
-                color: #0f172a !important;
-                font-weight: 500 !important;
+                fill: var(--text-primary) !important;
+                color: var(--text-primary) !important;
+                font-weight: 600 !important;
             }
             .js-plotly-plot .plotly .gridlayer path {
-                stroke: rgba(15, 23, 42, 0.1) !important;
+                stroke: rgba(15, 23, 42, 0.12) !important;
             }
-        </style>
-        """, unsafe_allow_html=True)
-    elif "Emerald" in theme_choice:
-        st.markdown("""
-        <style>
-            :root {
-                --bg-main: #06131a !important;
-                --bg-sidebar: linear-gradient(180deg, #0a1f2b 0%, #040d12 100%) !important;
-                --bg-card: rgba(10, 31, 43, 0.85) !important;
-                --border-card: rgba(16, 185, 129, 0.2) !important;
-                --text-primary: #f0fdf4 !important;
-                --text-secondary: #a7f3d0 !important;
-                --shadow-card: 0 8px 32px 0 rgba(0, 0, 0, 0.45) !important;
-                --accent-blue: #10b981 !important;
-                --tab-bg: rgba(10, 31, 43, 0.9) !important;
-                --tab-active-bg: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
-            }
-            .stApp { background-color: #06131a !important; color: #f0fdf4 !important; }
-            .section-header { color: #f0fdf4 !important; }
-            .section-subheader { color: #a7f3d0 !important; }
-            .metric-value { color: #f0fdf4 !important; }
-            .metric-title { color: #a7f3d0 !important; }
         </style>
         """, unsafe_allow_html=True)
 
@@ -149,16 +129,28 @@ st.sidebar.markdown("""
 """, unsafe_allow_html=True)
 st.sidebar.markdown("---")
 
-# Theme Preset Switcher
-selected_theme = st.sidebar.selectbox(
-    "EXECUTIVE THEME",
-    [
-        "Midnight Slate (Executive Dark)",
-        "Corporate Light (Clean Enterprise)",
-        "Emerald Wealth (Financial Pro)"
-    ]
-)
-apply_theme(selected_theme)
+# Theme & Palette Engine Controls
+st.sidebar.markdown("### 🎨 THEME & PALETTE ENGINE")
+col_t1, col_t2 = st.sidebar.columns(2)
+
+with col_t1:
+    selected_mode = st.radio(
+        "MODE",
+        ["🌙 Night", "☀️ Day"],
+        key="theme_mode_radio"
+    )
+
+with col_t2:
+    selected_palette = st.selectbox(
+        "PALETTE",
+        ["💙 Indigo", "💚 Emerald", "💜 Amethyst"],
+        key="color_palette_select"
+    )
+
+st.session_state["theme_mode"] = selected_mode
+st.session_state["color_palette"] = selected_palette
+
+apply_theme(selected_mode, selected_palette)
 
 st.sidebar.markdown("---")
 

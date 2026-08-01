@@ -6,6 +6,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 from dashboard.components import render_rfm_scatter, render_cohort_heatmap
+from dashboard.components.charts import update_dark_layout
 from utils.rfm_analytics import RFMAnalytics
 
 def render_customer_rfm_view(df_master: pd.DataFrame, rfm_df: pd.DataFrame):
@@ -34,7 +35,7 @@ def render_customer_rfm_view(df_master: pd.DataFrame, rfm_df: pd.DataFrame):
             color_continuous_scale="Purples",
             labels={"customer_count": "Customers", "rfm_segment": "Segment"}
         )
-        fig_seg.update_layout(template="plotly_dark", paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)", height=380)
+        fig_seg = update_dark_layout(fig_seg, title="Customer Segment Breakdown", height=380)
         st.plotly_chart(fig_seg, use_container_width=True)
 
     with col2:

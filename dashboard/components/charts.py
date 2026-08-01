@@ -1,5 +1,5 @@
 """
-Plotly Interactive Chart Components styled with Dark Mode themes.
+Plotly Interactive Chart Components styled with Dynamic Day & Night Mode Themes.
 """
 
 import pandas as pd
@@ -8,7 +8,41 @@ import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
 
-# Custom Executive Palette
+def get_active_palette():
+    """Retrieves current theme mode and color palette configuration."""
+    theme_mode = st.session_state.get("theme_mode", "🌙 Night")
+    color_palette = st.session_state.get("color_palette", "💙 Indigo")
+    is_light = "Day" in str(theme_mode) or "☀️" in str(theme_mode)
+
+    if "Emerald" in str(color_palette):
+        primary = "#059669" if is_light else "#34d399"
+        secondary = "#0d9488" if is_light else "#10b981"
+        accent = "#0284c7" if is_light else "#38bdf8"
+        tree_scale = "Viridis" if is_light else "Emerald"
+        map_scale = "Greens" if is_light else "Teal"
+    elif "Amethyst" in str(color_palette):
+        primary = "#7c3aed" if is_light else "#c084fc"
+        secondary = "#e11d48" if is_light else "#f43f5e"
+        accent = "#f59e0b" if is_light else "#fbbf24"
+        tree_scale = "Purples" if is_light else "Plasma"
+        map_scale = "Purples" if is_light else "Magenta"
+    else: # Indigo
+        primary = "#2563eb" if is_light else "#38bdf8"
+        secondary = "#4f46e5" if is_light else "#6366f1"
+        accent = "#10b981" if is_light else "#34d399"
+        tree_scale = "Blues" if is_light else "Cividis"
+        map_scale = "Blues" if is_light else "Blues"
+
+    return {
+        "is_light": is_light,
+        "primary": primary,
+        "secondary": secondary,
+        "accent": accent,
+        "tree_scale": tree_scale,
+        "map_scale": map_scale
+    }
+
+# Exported default palette constants for backwards compatibility
 PRIMARY_CYAN = "#38bdf8"
 PRIMARY_INDIGO = "#6366f1"
 SECONDARY_PURPLE = "#818cf8"
@@ -17,9 +51,9 @@ ACCENT_CORAL = "#f43f5e"
 DARK_BG = "rgba(15, 23, 42, 0.4)"
 
 def update_dark_layout(fig, title: str = None, height: int = 400):
-    """Applies high-end responsive aesthetics to Plotly figures based on active theme."""
-    theme_choice = st.session_state.get("theme_selector", "")
-    is_light = "Light" in str(theme_choice)
+    """Applies high-end responsive aesthetics to Plotly figures based on active Day/Night theme."""
+    pal = get_active_palette()
+    is_light = pal["is_light"]
 
     template = "plotly_white" if is_light else "plotly_dark"
     title_color = "#0f172a" if is_light else "#f8fafc"
@@ -54,6 +88,7 @@ def update_dark_layout(fig, title: str = None, height: int = 400):
 
 def render_revenue_trend_chart(daily_df: pd.DataFrame) -> go.Figure:
     """Line chart showing daily revenue and 7-day moving average."""
+    pal = get_active_palette()
     fig = go.Figure()
 
     fig.add_trace(go.Scatter(
@@ -61,7 +96,8 @@ def render_revenue_trend_chart(daily_df: pd.DataFrame) -> go.Figure:
         y=daily_df["revenue"],
         mode="lines",
         name="Daily Revenue",
-        line=dict(color="rgba(56, 189, 248, 0.35)", width=1.5),
+        line=dict(color=pal["primary"], width=1.5),
+        opacity=0.45,
         hovertemplate="Date: %{x}<br>Revenue: $%{y:,.2f}<extra></extra>"
     ))
 
@@ -72,7 +108,7 @@ def render_revenue_trend_chart(daily_df: pd.DataFrame) -> go.Figure:
         y=ma_7,
         mode="lines",
         name="7-Day Moving Avg",
-        line=dict(color=PRIMARY_CYAN, width=3),
+        line=dict(color=pal["secondary"], width=3),
         hovertemplate="Date: %{x}<br>7D Avg: $%{y:,.2f}<extra></extra>"
     ))
 
@@ -80,6 +116,7 @@ def render_revenue_trend_chart(daily_df: pd.DataFrame) -> go.Figure:
 
 def render_category_treemap(df_master: pd.DataFrame) -> go.Figure:
     """Treemap of department and category revenue distribution."""
+    pal = get_active_palette()
     cat_df = df_master.groupby(["department", "category_name"]).agg({
         "net_amount": "sum",
         "quantity": "sum",
@@ -91,7 +128,7 @@ def render_category_treemap(df_master: pd.DataFrame) -> go.Figure:
         path=["department", "category_name"],
         values="net_amount",
         color="item_profit",
-        color_continuous_scale="Viridis",
+        color_continuous_scale=pal["tree_scale"],
         hover_data=["quantity"],
         labels={"net_amount": "Revenue ($)", "item_profit": "Profit ($)"}
     )
@@ -101,7 +138,7 @@ def render_category_treemap(df_master: pd.DataFrame) -> go.Figure:
 
 def render_regional_map(state_df: pd.DataFrame) -> go.Figure:
     """US State Choropleth Map or Bar Chart of revenue by state."""
-    # Mapping state names to 2-letter codes for US Choropleth
+    pal = get_active_palette()
     us_state_to_abbrev = {
         "California": "CA", "New York": "NY", "Texas": "TX", "Florida": "FL",
         "Illinois": "IL", "Washington": "WA", "Massachusetts": "MA", "Georgia": "GA",
@@ -120,7 +157,7 @@ def render_regional_map(state_df: pd.DataFrame) -> go.Figure:
             hover_name="state",
             hover_data={"state_net_revenue": ":$,.2f", "total_delivered_orders": ":,"},
             scope="usa",
-            color_continuous_scale="Blues"
+            color_continuous_scale=pal["map_scale"]
         )
     else:
         fig = px.bar(
@@ -129,7 +166,7 @@ def render_regional_map(state_df: pd.DataFrame) -> go.Figure:
             y="state",
             orientation="h",
             color="state_net_revenue",
-            color_continuous_scale="Blues"
+            color_continuous_scale=pal["map_scale"]
         )
 
     return update_dark_layout(fig, title="US Regional Sales Revenue Distribution", height=400)
@@ -153,12 +190,15 @@ def render_rfm_scatter(rfm_df: pd.DataFrame) -> go.Figure:
 
 def render_cohort_heatmap(retention_matrix: pd.DataFrame) -> go.Figure:
     """Heatmap showing customer cohort retention percentage over time."""
+    pal = get_active_palette()
+    heat_scale = "Viridis" if pal["is_light"] else "Magma"
+
     fig = px.imshow(
         retention_matrix,
         labels=dict(x="Months Since Acquisition", y="Acquisition Cohort", color="Retention %"),
         x=retention_matrix.columns,
         y=retention_matrix.index,
-        color_continuous_scale="Magma",
+        color_continuous_scale=heat_scale,
         text_auto=".1f"
     )
 
@@ -166,6 +206,7 @@ def render_cohort_heatmap(retention_matrix: pd.DataFrame) -> go.Figure:
 
 def render_forecast_chart(historical_df: pd.DataFrame, forecast_df: pd.DataFrame) -> go.Figure:
     """Line chart displaying historical sales alongside future ML prediction with confidence bounds."""
+    pal = get_active_palette()
     fig = go.Figure()
 
     # Historical Revenue (Last 90 days)
@@ -175,7 +216,7 @@ def render_forecast_chart(historical_df: pd.DataFrame, forecast_df: pd.DataFrame
         y=hist_recent["revenue"],
         mode="lines",
         name="Historical Revenue",
-        line=dict(color=PRIMARY_CYAN, width=2.5)
+        line=dict(color=pal["primary"], width=2.5)
     ))
 
     # Upper & Lower Confidence Interval Band
@@ -183,7 +224,7 @@ def render_forecast_chart(historical_df: pd.DataFrame, forecast_df: pd.DataFrame
         x=pd.concat([forecast_df["date"], forecast_df["date"][::-1]]),
         y=pd.concat([forecast_df["upper_bound"], forecast_df["lower_bound"][::-1]]),
         fill="toself",
-        fillcolor="rgba(129, 140, 248, 0.18)",
+        fillcolor="rgba(129, 140, 248, 0.18)" if not pal["is_light"] else "rgba(37, 99, 235, 0.12)",
         line=dict(color="rgba(255,255,255,0)"),
         hoverinfo="skip",
         showlegend=True,
@@ -196,8 +237,8 @@ def render_forecast_chart(historical_df: pd.DataFrame, forecast_df: pd.DataFrame
         y=forecast_df["forecast_revenue"],
         mode="lines+markers",
         name="ML Predicted Forecast",
-        line=dict(color=SECONDARY_PURPLE, width=3, dash="dash"),
+        line=dict(color=pal["secondary"], width=3, dash="dash"),
         marker=dict(size=4)
     ))
 
-    return update_dark_layout(fig, title="Supervised ML 60-Day Revenue Forecast with Confidence Bounds", height=420)
+    return update_dark_layout(fig, title="Supervised ML Revenue Forecast with Confidence Bounds", height=420)
