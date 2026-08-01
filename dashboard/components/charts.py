@@ -9,29 +9,22 @@ import plotly.graph_objects as go
 import streamlit as st
 
 def get_active_palette():
-    """Retrieves current theme mode and color palette configuration."""
-    theme_mode = st.session_state.get("theme_mode", "🌙 Night")
-    color_palette = st.session_state.get("color_palette", "💙 Indigo")
+    """Retrieves current theme mode configuration (Day vs Night)."""
+    theme_mode = st.session_state.get("theme_mode", "☀️ Day")
     is_light = "Day" in str(theme_mode) or "☀️" in str(theme_mode)
 
-    if "Emerald" in str(color_palette):
-        primary = "#059669" if is_light else "#34d399"
-        secondary = "#0d9488" if is_light else "#10b981"
-        accent = "#0284c7" if is_light else "#38bdf8"
-        tree_scale = "Viridis" if is_light else "Emerald"
-        map_scale = "Greens" if is_light else "Teal"
-    elif "Amethyst" in str(color_palette):
-        primary = "#7c3aed" if is_light else "#c084fc"
-        secondary = "#e11d48" if is_light else "#f43f5e"
-        accent = "#f59e0b" if is_light else "#fbbf24"
-        tree_scale = "Purples" if is_light else "Plasma"
-        map_scale = "Purples" if is_light else "Magenta"
-    else: # Indigo
-        primary = "#2563eb" if is_light else "#38bdf8"
-        secondary = "#4f46e5" if is_light else "#6366f1"
-        accent = "#10b981" if is_light else "#34d399"
-        tree_scale = "Blues" if is_light else "Cividis"
-        map_scale = "Blues" if is_light else "Blues"
+    if is_light:
+        primary = "#2563eb"
+        secondary = "#4f46e5"
+        accent = "#059669"
+        tree_scale = "Viridis"
+        map_scale = "Blues"
+    else:
+        primary = "#38bdf8"
+        secondary = "#6366f1"
+        accent = "#34d399"
+        tree_scale = "Cividis"
+        map_scale = "Blues"
 
     return {
         "is_light": is_light,

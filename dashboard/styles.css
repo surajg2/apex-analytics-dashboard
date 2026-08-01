@@ -1,16 +1,15 @@
 /* ============================================================================
-   SAAS EXECUTIVE DASHBOARD STYLES - DAY & NIGHT MULTI-PALETTE SYSTEM
+   SAAS EXECUTIVE DASHBOARD STYLES - DAY & NIGHT DESIGN SYSTEM
    ============================================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 /* ============================================================================
-   1. COLOR PALETTES & THEME DEFINITIONS (DAY & NIGHT)
+   1. DAY & NIGHT THEME DEFINITIONS
    ============================================================================ */
 
-/* --- NIGHT (DARK) THEMES --- */
-/* Palette 1: Night Indigo (Executive Cyber) */
-.theme-night-indigo, :root {
+/* --- 🌙 NIGHT MODE (EXECUTIVE DARK) --- */
+.theme-night, :root {
     --bg-main: #090d16;
     --bg-sidebar: #0d1322;
     --bg-card: rgba(18, 26, 44, 0.85);
@@ -33,57 +32,8 @@
     --brand-gradient: linear-gradient(135deg, #6366f1 0%, #0284c7 100%);
 }
 
-/* Palette 2: Night Emerald (Financial Dark) */
-.theme-night-emerald {
-    --bg-main: #041014;
-    --bg-sidebar: #071820;
-    --bg-card: rgba(8, 28, 36, 0.85);
-    --bg-card-hover: rgba(14, 42, 54, 0.95);
-    --border-card: rgba(16, 185, 129, 0.18);
-    --border-card-hover: rgba(52, 211, 153, 0.5);
-    --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
-    --text-primary: #f0fdf4;
-    --text-secondary: #a7f3d0;
-    --text-muted: #6ee7b7;
-    --accent-primary: #34d399;
-    --accent-secondary: #10b981;
-    --accent-emerald: #059669;
-    --badge-pos-bg: rgba(52, 211, 153, 0.18);
-    --badge-pos-text: #6ee7b7;
-    --badge-pos-border: rgba(52, 211, 153, 0.35);
-    --tab-bg: rgba(7, 24, 32, 0.9);
-    --tab-active-bg: linear-gradient(135deg, #059669 0%, #047857 100%);
-    --header-bg: rgba(4, 16, 20, 0.85);
-    --brand-gradient: linear-gradient(135deg, #10b981 0%, #047857 100%);
-}
-
-/* Palette 3: Night Amethyst (Royal Cyber) */
-.theme-night-amethyst {
-    --bg-main: #0d0814;
-    --bg-sidebar: #140c20;
-    --bg-card: rgba(26, 16, 40, 0.85);
-    --bg-card-hover: rgba(38, 24, 58, 0.95);
-    --border-card: rgba(168, 85, 247, 0.2);
-    --border-card-hover: rgba(244, 63, 94, 0.5);
-    --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
-    --text-primary: #faf5ff;
-    --text-secondary: #e9d5ff;
-    --text-muted: #c084fc;
-    --accent-primary: #f43f5e;
-    --accent-secondary: #a855f7;
-    --accent-emerald: #10b981;
-    --badge-pos-bg: rgba(244, 63, 94, 0.18);
-    --badge-pos-text: #fda4af;
-    --badge-pos-border: rgba(244, 63, 94, 0.35);
-    --tab-bg: rgba(20, 12, 32, 0.9);
-    --tab-active-bg: linear-gradient(135deg, #a855f7 0%, #e11d48 100%);
-    --header-bg: rgba(13, 8, 20, 0.85);
-    --brand-gradient: linear-gradient(135deg, #a855f7 0%, #f43f5e 100%);
-}
-
-/* --- DAY (LIGHT) THEMES --- */
-/* Palette 1: Day Indigo (Executive Crisp Light) */
-.theme-day-indigo {
+/* --- ☀️ DAY MODE (CLEAN LIGHT) --- */
+.theme-day {
     --bg-main: #f8fafc;
     --bg-sidebar: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
     --bg-card: #ffffff;
@@ -104,54 +54,6 @@
     --tab-active-bg: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
     --header-bg: rgba(248, 250, 252, 0.9);
     --brand-gradient: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-}
-
-/* Palette 2: Day Emerald (Fresh Financial Light) */
-.theme-day-emerald {
-    --bg-main: #f0fdf4;
-    --bg-sidebar: linear-gradient(180deg, #064e3b 0%, #022c22 100%);
-    --bg-card: #ffffff;
-    --bg-card-hover: #ecfdf5;
-    --border-card: #a7f3d0;
-    --border-card-hover: #059669;
-    --shadow-card: 0 4px 20px 0 rgba(6, 78, 59, 0.08);
-    --text-primary: #064e3b;
-    --text-secondary: #047857;
-    --text-muted: #059669;
-    --accent-primary: #059669;
-    --accent-secondary: #0d9488;
-    --accent-emerald: #10b981;
-    --badge-pos-bg: rgba(5, 150, 105, 0.12);
-    --badge-pos-text: #047857;
-    --badge-pos-border: rgba(5, 150, 105, 0.3);
-    --tab-bg: #d1fae5;
-    --tab-active-bg: linear-gradient(135deg, #059669 0%, #047857 100%);
-    --header-bg: rgba(240, 253, 244, 0.9);
-    --brand-gradient: linear-gradient(135deg, #059669 0%, #0d9488 100%);
-}
-
-/* Palette 3: Day Amethyst (Modern Rose Light) */
-.theme-day-amethyst {
-    --bg-main: #faf5ff;
-    --bg-sidebar: linear-gradient(180deg, #3b0764 0%, #240046 100%);
-    --bg-card: #ffffff;
-    --bg-card-hover: #f3e8ff;
-    --border-card: #e9d5ff;
-    --border-card-hover: #7c3aed;
-    --shadow-card: 0 4px 20px 0 rgba(59, 7, 100, 0.08);
-    --text-primary: #3b0764;
-    --text-secondary: #581c87;
-    --text-muted: #7c3aed;
-    --accent-primary: #7c3aed;
-    --accent-secondary: #e11d48;
-    --accent-emerald: #059669;
-    --badge-pos-bg: rgba(124, 58, 237, 0.12);
-    --badge-pos-text: #6b21a8;
-    --badge-pos-border: rgba(124, 58, 237, 0.3);
-    --tab-bg: #e9d5ff;
-    --tab-active-bg: linear-gradient(135deg, #7c3aed 0%, #e11d48 100%);
-    --header-bg: rgba(250, 245, 255, 0.9);
-    --brand-gradient: linear-gradient(135deg, #7c3aed 0%, #e11d48 100%);
 }
 
 /* ============================================================================
@@ -190,14 +92,6 @@ section[data-testid="stSidebar"] .stSlider label {
     color: #f8fafc !important;
 }
 
-/* Sidebar Mode & Palette Controls */
-.mode-badge-container {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    padding: 6px 0;
-}
-
 /* Corporate Brand Header */
 .brand-container {
     display: flex;
@@ -231,6 +125,13 @@ section[data-testid="stSidebar"] .stSlider label {
     letter-spacing: 0.08em;
     color: #cbd5e1 !important;
     text-transform: uppercase;
+}
+
+/* Day & Night Radio Switch Styling */
+div[data-testid="stRadio"] > label {
+    font-weight: 700 !important;
+    font-size: 0.85rem !important;
+    letter-spacing: 0.05em !important;
 }
 
 /* ============================================================================

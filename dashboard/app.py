@@ -29,18 +29,9 @@ st.set_page_config(
 )
 
 # 2. Inject CSS Styles & Dynamic Theme Engine
-def apply_theme(theme_mode="🌙 Night", color_palette="💙 Indigo"):
+def apply_theme(theme_mode="☀️ Day"):
     is_day = "Day" in str(theme_mode) or "☀️" in str(theme_mode)
-    mode_str = "day" if is_day else "night"
-    
-    if "Emerald" in str(color_palette):
-        pal_str = "emerald"
-    elif "Amethyst" in str(color_palette):
-        pal_str = "amethyst"
-    else:
-        pal_str = "indigo"
-        
-    theme_class = f"theme-{mode_str}-{pal_str}"
+    theme_class = "theme-day" if is_day else "theme-night"
     
     css_path = os.path.join(os.path.dirname(__file__), "styles.css")
     if os.path.exists(css_path):
@@ -129,28 +120,15 @@ st.sidebar.markdown("""
 """, unsafe_allow_html=True)
 st.sidebar.markdown("---")
 
-# Theme & Palette Engine Controls
-st.sidebar.markdown("### 🎨 THEME & PALETTE ENGINE")
-col_t1, col_t2 = st.sidebar.columns(2)
-
-with col_t1:
-    selected_mode = st.radio(
-        "MODE",
-        ["🌙 Night", "☀️ Day"],
-        key="theme_mode_radio"
-    )
-
-with col_t2:
-    selected_palette = st.selectbox(
-        "PALETTE",
-        ["💙 Indigo", "💚 Emerald", "💜 Amethyst"],
-        key="color_palette_select"
-    )
+# Day / Night Theme Switcher Button
+selected_mode = st.sidebar.radio(
+    "DISPLAY MODE",
+    ["☀️ Day", "🌙 Night"],
+    key="theme_mode_radio"
+)
 
 st.session_state["theme_mode"] = selected_mode
-st.session_state["color_palette"] = selected_palette
-
-apply_theme(selected_mode, selected_palette)
+apply_theme(selected_mode)
 
 st.sidebar.markdown("---")
 
