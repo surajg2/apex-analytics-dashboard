@@ -136,13 +136,13 @@ st.sidebar.markdown("---")
 page = st.sidebar.radio(
     "NAVIGATION MODULES",
     [
-        "Executive KPI Overview",
-        "Sales & Payment Analytics",
-        "Customer RFM & Cohorts",
-        "Product & Inventory Analytics",
-        "Interactive SQL Studio",
-        "ML Revenue Forecasting",
-        "Strategic Business Insights"
+        "📊 Executive KPI Overview",
+        "📈 Sales & Payment Analytics",
+        "👥 Customer RFM & Cohorts",
+        "📦 Product & Inventory Analytics",
+        "💻 Interactive SQL Studio",
+        "🤖 ML Revenue Forecasting",
+        "💡 Strategic Business Insights"
     ]
 )
 
@@ -199,17 +199,17 @@ st.sidebar.markdown("---")
 st.sidebar.caption(f"Showing **{len(filtered_master):,}** filtered order items across **{filtered_master['order_id'].nunique():,}** orders.")
 
 # 5. Render Selected Page View
-if page == "Executive KPI Overview":
+if "Executive KPI" in page:
     render_executive_kpi_view(filtered_master, filtered_daily, rfm_df)
-elif page == "Sales & Payment Analytics":
+elif "Sales & Payment" in page:
     render_sales_analytics_view(filtered_master, filtered_daily)
-elif page == "Customer RFM & Cohorts":
+elif "Customer RFM" in page:
     render_customer_rfm_view(filtered_master, rfm_df)
-elif page == "Product & Inventory Analytics":
+elif "Product & Inventory" in page:
     render_product_inventory_view(filtered_master, df_products)
-elif page == "Interactive SQL Studio":
+elif "SQL Studio" in page:
     render_sql_studio_view()
-elif page == "ML Revenue Forecasting":
+elif "ML Revenue" in page:
     render_ml_forecasting_view(filtered_daily)
-elif page == "Strategic Business Insights":
+elif "Strategic Business" in page:
     render_business_insights_view(filtered_master, rfm_df)
