@@ -115,7 +115,9 @@ def render_sales_analytics_view(df_master: pd.DataFrame, daily_df: pd.DataFrame)
 
     with col4:
         # Customer review score distribution by delivery delay
-        valid_df["delivery_status_label"] = np.where(valid_df["is_delivery_delayed"] == 1, "Delayed Delivery", "On-Time / Early")
+        valid_df["delivery_status_label"] = valid_df["is_delivery_delayed"].map(
+            {1: "Delayed Delivery", 0: "On-Time / Early"}
+        ).fillna("On-Time / Early")
         rev_sla = valid_df.groupby(["delivery_status_label", "review_score"])["order_id"].nunique().reset_index()
 
         fig_rev = px.bar(
