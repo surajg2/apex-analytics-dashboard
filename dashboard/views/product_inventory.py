@@ -111,6 +111,6 @@ def render_product_inventory_view(df_master: pd.DataFrame, df_products: pd.DataF
             "item_profit": "Profit ($)",
             "margin_pct": "Margin (%)"
         }),
-        use_container_width=True,
+        width="stretch",
         hide_index=True
     )

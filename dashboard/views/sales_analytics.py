@@ -4,6 +4,7 @@ Exploratory Sales & Regional Analytics View.
 
 import streamlit as st
 import pandas as pd
+import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
 from dashboard.components.charts import update_dark_layout, PRIMARY_CYAN, SECONDARY_PURPLE, ACCENT_GREEN

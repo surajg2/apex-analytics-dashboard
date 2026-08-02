@@ -80,6 +80,6 @@ def render_business_insights_view(df_master: pd.DataFrame, rfm_df: pd.DataFrame)
 
     st.dataframe(
         pd.DataFrame(matrix_data),
-        use_container_width=True,
+        width="stretch",
         hide_index=True
     )

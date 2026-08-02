@@ -73,6 +73,6 @@ def render_customer_rfm_view(df_master: pd.DataFrame, rfm_df: pd.DataFrame):
             "aov": "AOV ($)",
             "clv_estimate": "Predicted CLV ($)"
         }),
-        use_container_width=True,
+        width="stretch",
         hide_index=True
     )

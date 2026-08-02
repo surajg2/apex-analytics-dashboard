@@ -84,6 +84,6 @@ def render_ml_forecasting_view(daily_df: pd.DataFrame):
                 "lower_bound": "Lower Bound ($)",
                 "upper_bound": "Upper Bound ($)"
             }),
-            use_container_width=True,
+            width="stretch",
             hide_index=True
         )

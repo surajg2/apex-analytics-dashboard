@@ -42,7 +42,7 @@ def render_sql_studio_view():
             try:
                 res_df = runner.run_query(custom_sql)
                 st.success(f"Query executed successfully! Returned {len(res_df):,} rows.")
-                st.dataframe(res_df, use_container_width=True)
+                st.dataframe(res_df, width="stretch")
 
                 # Export CSV button
                 csv_data = res_df.to_csv(index=False).encode('utf-8')
