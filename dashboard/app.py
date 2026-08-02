@@ -51,6 +51,14 @@ def apply_theme(theme_mode="☀️ Day"):
     if is_day:
         st.markdown("""
         <style>
+            section[data-testid="stSidebar"] {
+                background-color: #ffffff !important;
+                background-image: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%) !important;
+            }
+            .stApp {
+                background-color: #f8fafc !important;
+                color: #0f172a !important;
+            }
             .js-plotly-plot .plotly .main-svg text,
             .js-plotly-plot .plotly .gtitle,
             .js-plotly-plot .plotly .xtick text,
@@ -60,8 +68,8 @@ def apply_theme(theme_mode="☀️ Day"):
             .js-plotly-plot .plotly .xaxis-title,
             .js-plotly-plot .plotly .yaxis-title,
             .js-plotly-plot .plotly .slicetext {
-                fill: var(--text-primary) !important;
-                color: var(--text-primary) !important;
+                fill: #0f172a !important;
+                color: #0f172a !important;
                 font-weight: 600 !important;
             }
             .js-plotly-plot .plotly .gridlayer path {
