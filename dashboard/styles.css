@@ -91,18 +91,18 @@
     --sidebar-heading: #a5b4fc;
     --nav-item-bg: rgba(255, 255, 255, 0.04);
     --nav-item-border: rgba(255, 255, 255, 0.08);
-    --nav-item-text: #e2e8f0;
-    --nav-item-hover-bg: rgba(99, 102, 241, 0.18);
+    --nav-item-text: #f8fafc;
+    --nav-item-hover-bg: rgba(99, 102, 241, 0.22);
     --nav-item-hover-text: #ffffff;
-    --nav-bullet-border: rgba(255, 255, 255, 0.3);
-    --brand-text-fill: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+    --nav-bullet-border: rgba(255, 255, 255, 0.4);
+    --brand-text-color: #ffffff;
     --brand-sub-color: #94a3b8;
     --button-bg: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
     --button-text: #ffffff;
     --button-border: rgba(255, 255, 255, 0.14);
 }
 
-/* --- ☀️ DAY MODE (SHARP HIGH-CONTRAST LIGHT) --- */
+/* --- ☀️ DAY MODE (BRIGHT VIBRANT LIGHT) --- */
 .theme-day {
     --bg-main: #f8fafc;
     --bg-sidebar: #ffffff;
@@ -117,7 +117,7 @@
     --accent-primary: #2563eb;
     --accent-secondary: #4f46e5;
     --accent-emerald: #059669;
-    --badge-pos-bg: rgba(37, 99, 235, 0.1);
+    --badge-pos-bg: rgba(37, 99, 235, 0.12);
     --badge-pos-text: #1d4ed8;
     --badge-pos-border: rgba(37, 99, 235, 0.3);
     --tab-bg: #e2e8f0;
@@ -132,7 +132,7 @@
     --nav-item-hover-bg: #2563eb;
     --nav-item-hover-text: #ffffff;
     --nav-bullet-border: #64748b;
-    --brand-text-fill: linear-gradient(135deg, #090d16 0%, #1e293b 100%);
+    --brand-text-color: #090d16;
     --brand-sub-color: #334155;
     --button-bg: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
     --button-text: #090d16;
@@ -200,9 +200,7 @@ section[data-testid="stSidebar"] * {
     font-size: 1.5rem;
     font-weight: 800;
     letter-spacing: -0.02em;
-    background: var(--brand-text-fill);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--brand-text-color) !important;
     line-height: 1.15;
 }
 
@@ -620,12 +618,21 @@ div[data-testid="stSidebar"] button:hover {
     color: #090d16 !important;
 }
 
+.theme-day .brand-text {
+    color: #090d16 !important;
+    -webkit-text-fill-color: #090d16 !important;
+}
+
+.theme-day .brand-sub {
+    color: #334155 !important;
+}
+
 .theme-day section[data-testid="stSidebar"] h1,
 .theme-day section[data-testid="stSidebar"] h2,
 .theme-day section[data-testid="stSidebar"] h3,
 .theme-day div[data-testid="stRadio"] > label,
 .theme-day section[data-testid="stSidebar"] .stMarkdown p strong {
-    color: #0f172a !important;
+    color: #090d16 !important;
     font-weight: 800 !important;
 }
 
