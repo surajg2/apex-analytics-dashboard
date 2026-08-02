@@ -115,6 +115,9 @@ st.sidebar.markdown("""
     <div>
         <div class="brand-text">ApexAnalytics</div>
         <div class="brand-sub">E-Commerce SaaS Executive Platform</div>
+        <div class="brand-status-pill">
+            <span class="live-dot"></span> LIVE SYSTEM ACTIVE
+        </div>
     </div>
 </div>
 """, unsafe_allow_html=True)

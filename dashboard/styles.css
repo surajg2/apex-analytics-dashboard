@@ -1,11 +1,11 @@
 /* ============================================================================
-   SAAS EXECUTIVE DASHBOARD STYLES - ANIMATED DAY & NIGHT DESIGN SYSTEM
+   SAAS EXECUTIVE DASHBOARD STYLES - ULTRA EXECUTIVE SIDEBAR & ANIMATIONS
    ============================================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 /* ============================================================================
-   1. ANIMATION KEYFRAMES
+   1. KEYFRAME ANIMATIONS
    ============================================================================ */
 
 @keyframes fadeInSlideUp {
@@ -36,6 +36,19 @@
     }
     50% {
         box-shadow: 0 0 28px rgba(99, 102, 241, 0.65);
+    }
+}
+
+@keyframes pulseDot {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+        box-shadow: 0 0 8px #10b981;
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(0.85);
+        box-shadow: 0 0 3px #10b981;
     }
 }
 
@@ -74,8 +87,8 @@
     --tab-active-bg: linear-gradient(135deg, #4f46e5 0%, #0284c7 100%);
     --header-bg: rgba(9, 13, 22, 0.85);
     --brand-gradient: linear-gradient(135deg, #6366f1 0%, #0284c7 100%);
-    --nav-item-bg: rgba(255, 255, 255, 0.03);
-    --nav-item-border: rgba(255, 255, 255, 0.07);
+    --nav-item-bg: rgba(255, 255, 255, 0.04);
+    --nav-item-border: rgba(255, 255, 255, 0.08);
     --nav-item-hover-bg: rgba(99, 102, 241, 0.18);
 }
 
@@ -101,9 +114,9 @@
     --tab-active-bg: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
     --header-bg: rgba(248, 250, 252, 0.9);
     --brand-gradient: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-    --nav-item-bg: rgba(255, 255, 255, 0.05);
-    --nav-item-border: rgba(255, 255, 255, 0.1);
-    --nav-item-hover-bg: rgba(37, 99, 235, 0.2);
+    --nav-item-bg: rgba(255, 255, 255, 0.06);
+    --nav-item-border: rgba(255, 255, 255, 0.12);
+    --nav-item-hover-bg: rgba(37, 99, 235, 0.22);
 }
 
 /* ============================================================================
@@ -133,6 +146,7 @@ footer {
 section[data-testid="stSidebar"] {
     background: var(--bg-sidebar) !important;
     border-right: 1px solid var(--border-card) !important;
+    padding-top: 1rem !important;
     animation: fadeInSlideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
@@ -145,107 +159,217 @@ section[data-testid="stSidebar"] * {
     display: flex;
     align-items: center;
     gap: 14px;
-    padding: 10px 4px 18px 4px;
+    padding: 6px 4px 14px 4px;
     animation: floatBrand 4s ease-in-out infinite;
 }
 
 .brand-icon-box {
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
     border-radius: 12px;
     background: var(--brand-gradient);
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4);
+    box-shadow: 0 4px 18px rgba(99, 102, 241, 0.45);
     animation: pulseGlow 3s infinite;
 }
 
 .brand-text {
     font-family: 'Outfit', sans-serif !important;
-    font-size: 1.45rem;
+    font-size: 1.5rem;
     font-weight: 800;
     letter-spacing: -0.02em;
     background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    line-height: 1.2;
+    line-height: 1.15;
 }
 
 .brand-sub {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     font-weight: 700;
-    letter-spacing: 0.09em;
+    letter-spacing: 0.08em;
     color: #94a3b8 !important;
     text-transform: uppercase;
+    margin-top: 2px;
+}
+
+.brand-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 6px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    color: #34d399 !important;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+}
+
+.live-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #10b981;
+    display: inline-block;
+    animation: pulseDot 2s infinite;
 }
 
 /* Sidebar Section Headers */
+section[data-testid="stSidebar"] h1,
+section[data-testid="stSidebar"] h2,
 section[data-testid="stSidebar"] h3,
-section[data-testid="stSidebar"] .stMarkdown p {
+div[data-testid="stRadio"] > label,
+section[data-testid="stSidebar"] .stMarkdown p strong {
     font-family: 'Outfit', sans-serif !important;
-    letter-spacing: 0.08em !important;
+    font-size: 0.78rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.12em !important;
+    color: #a5b4fc !important;
     text-transform: uppercase !important;
+    margin-bottom: 8px !important;
 }
 
-/* Radio Option Items (Navigation Modules, Display Mode, Filters) */
-div[data-testid="stRadio"] > label {
-    display: none !important;
+/* Radio Option Items (Navigation Modules, Display Mode) */
+div[data-testid="stRadio"] div[role="radiogroup"] {
+    gap: 8px !important;
+    padding-top: 4px !important;
 }
 
-div[data-testid="stRadio"] [role="radiogroup"] {
-    gap: 6px !important;
-}
-
-div[data-testid="stRadio"] [role="radiogroup"] label {
+/* Transform raw radio option labels into modern pill buttons */
+div[data-testid="stRadio"] div[role="radiogroup"] label {
     display: flex !important;
     align-items: center !important;
-    padding: 10px 14px !important;
+    padding: 11px 16px !important;
     margin-bottom: 4px !important;
-    border-radius: 10px !important;
+    border-radius: 12px !important;
     background: var(--nav-item-bg) !important;
     border: 1px solid var(--nav-item-border) !important;
-    transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    font-family: 'Plus Jakarta Sans', sans-serif !important;
-    font-weight: 600 !important;
-    font-size: 0.88rem !important;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
     cursor: pointer !important;
+    position: relative !important;
+    overflow: hidden !important;
 }
 
-/* Hover Animation on Navigation Items */
-div[data-testid="stRadio"] [role="radiogroup"] label:hover {
-    transform: translateX(6px) !important;
-    background: var(--nav-item-hover-bg) !important;
-    border-color: rgba(99, 102, 241, 0.45) !important;
-    box-shadow: 0 4px 14px rgba(99, 102, 241, 0.2) !important;
-}
-
-/* Selected Active Navigation Item */
-div[data-testid="stRadio"] [role="radiogroup"] label:has(input:checked),
-div[data-testid="stRadio"] [role="radiogroup"] label[data-checked="true"] {
-    background: linear-gradient(135deg, rgba(79, 70, 229, 0.9) 0%, rgba(37, 99, 235, 0.9) 100%) !important;
-    border-color: #818cf8 !important;
-    color: #ffffff !important;
-    font-weight: 700 !important;
-    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4) !important;
-    transform: translateX(6px) !important;
-}
-
-/* Hide raw radio circles for pill design */
-div[data-testid="stRadio"] [role="radiogroup"] label input[type="radio"] {
-    accent-color: #6366f1 !important;
-}
-
-/* Sidebar Selectbox & Input Custom Styling */
-section[data-testid="stSidebar"] div[data-baseweb="select"] {
-    border-radius: 10px !important;
-    border: 1px solid var(--nav-item-border) !important;
+/* Restyle raw radio circle into a modern glowing status bullet */
+div[data-testid="stRadio"] div[role="radiogroup"] label > div:first-child {
+    width: 14px !important;
+    height: 14px !important;
+    border-radius: 50% !important;
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+    background: transparent !important;
+    margin-right: 12px !important;
     transition: all 0.25s ease !important;
 }
 
-section[data-testid="stSidebar"] div[data-baseweb="select"]:hover {
+div[data-testid="stRadio"] div[role="radiogroup"] label > div:first-child div {
+    display: none !important;
+}
+
+/* Option Text Styling */
+div[data-testid="stRadio"] div[role="radiogroup"] label div[data-testid="stMarkdownContainer"] p {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 0.88rem !important;
+    font-weight: 600 !important;
+    color: #e2e8f0 !important;
+    letter-spacing: 0.01em !important;
+    margin: 0 !important;
+    transition: all 0.25s ease !important;
+}
+
+/* Hover State on Navigation Items */
+div[data-testid="stRadio"] div[role="radiogroup"] label:hover {
+    transform: translateX(8px) scale(1.015) !important;
+    background: var(--nav-item-hover-bg) !important;
     border-color: rgba(99, 102, 241, 0.5) !important;
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.25) !important;
+}
+
+div[data-testid="stRadio"] div[role="radiogroup"] label:hover > div:first-child {
+    border-color: #38bdf8 !important;
+    background: rgba(56, 189, 248, 0.3) !important;
+}
+
+div[data-testid="stRadio"] div[role="radiogroup"] label:hover div[data-testid="stMarkdownContainer"] p {
+    color: #ffffff !important;
+}
+
+/* Active / Checked Navigation Item */
+div[data-testid="stRadio"] div[role="radiogroup"] label:has(input:checked),
+div[data-testid="stRadio"] div[role="radiogroup"] label:has(div[aria-checked="true"]) {
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0.95) 0%, rgba(37, 99, 235, 0.95) 100%) !important;
+    border-color: #818cf8 !important;
+    box-shadow: 0 6px 24px rgba(79, 70, 229, 0.45) !important;
+    transform: translateX(8px) !important;
+}
+
+div[data-testid="stRadio"] div[role="radiogroup"] label:has(input:checked) > div:first-child,
+div[data-testid="stRadio"] div[role="radiogroup"] label:has(div[aria-checked="true"]) > div:first-child {
+    border-color: #ffffff !important;
+    background: #ffffff !important;
+    box-shadow: 0 0 10px #ffffff !important;
+}
+
+div[data-testid="stRadio"] div[role="radiogroup"] label:has(input:checked) div[data-testid="stMarkdownContainer"] p,
+div[data-testid="stRadio"] div[role="radiogroup"] label:has(div[aria-checked="true"]) div[data-testid="stMarkdownContainer"] p {
+    color: #ffffff !important;
+    font-weight: 800 !important;
+}
+
+/* DISPLAY MODE Segmented Horizontal Button Layout */
+div[data-testid="stRadio"]:has(label:contains("DISPLAY MODE")) div[role="radiogroup"] {
+    display: flex !important;
+    flex-direction: row !important;
+    background: rgba(15, 23, 42, 0.6) !important;
+    padding: 6px !important;
+    border-radius: 14px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    gap: 6px !important;
+}
+
+div[data-testid="stRadio"]:has(label:contains("DISPLAY MODE")) div[role="radiogroup"] label {
+    flex: 1 !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    transform: none !important;
+}
+
+div[data-testid="stRadio"]:has(label:contains("DISPLAY MODE")) div[role="radiogroup"] label:hover {
+    transform: translateY(-2px) !important;
+}
+
+div[data-testid="stRadio"]:has(label:contains("DISPLAY MODE")) div[role="radiogroup"] label:has(input:checked) {
+    transform: none !important;
+}
+
+/* Global Reset Filter Button */
+button[key="reset_filters"],
+div[data-testid="stSidebar"] button {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    border-radius: 12px !important;
+    color: #ffffff !important;
+    font-family: 'Outfit', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 0.88rem !important;
+    letter-spacing: 0.04em !important;
+    padding: 10px 18px !important;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    width: 100% !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25) !important;
+}
+
+button[key="reset_filters"]:hover,
+div[data-testid="stSidebar"] button:hover {
+    background: linear-gradient(135deg, #4f46e5 0%, #2563eb 100%) !important;
+    border-color: #818cf8 !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 24px rgba(79, 70, 229, 0.45) !important;
 }
 
 /* ============================================================================
@@ -256,7 +380,7 @@ section[data-testid="stSidebar"] div[data-baseweb="select"]:hover {
 .section-header {
     font-family: 'Outfit', sans-serif !important;
     color: var(--text-primary) !important;
-    font-size: 1.6rem;
+    font-size: 1.65rem;
     font-weight: 800;
     letter-spacing: -0.02em;
     animation: fadeInSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
