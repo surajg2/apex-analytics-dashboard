@@ -5,7 +5,4 @@ enableXsrfProtection = false
 
 [theme]
 primaryColor = "#2563eb"
-backgroundColor = "#090d16"
-secondaryBackgroundColor = "#0d1322"
-textColor = "#f8fafc"
 font = "sans serif"

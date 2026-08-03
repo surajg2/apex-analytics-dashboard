@@ -51,7 +51,7 @@ def apply_theme(theme_mode="🌙 Night"):
     if is_day:
         st.markdown("""
         <style>
-            /* Header Bar Match Canvas */
+            /* Day Mode Global Overrides */
             header[data-testid="stHeader"],
             div[data-testid="stHeader"],
             .stAppHeader {
@@ -59,92 +59,144 @@ def apply_theme(theme_mode="🌙 Night"):
                 background: #e2e8f0 !important;
             }
 
-            /* Sidebar Styling */
+            /* Sidebar Panel */
             section[data-testid="stSidebar"] {
                 background-color: #f8fafc !important;
                 background-image: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%) !important;
                 border-right: 1px solid #cbd5e1 !important;
             }
+
+            /* Sidebar Text & Headings */
             section[data-testid="stSidebar"] *,
             section[data-testid="stSidebar"] label,
             section[data-testid="stSidebar"] p,
-            section[data-testid="stSidebar"] span {
+            section[data-testid="stSidebar"] span,
+            section[data-testid="stSidebar"] h1,
+            section[data-testid="stSidebar"] h2,
+            section[data-testid="stSidebar"] h3,
+            section[data-testid="stSidebar"] div[data-testid="stMarkdownContainer"] p {
                 color: #0f172a !important;
             }
 
-            /* Unselected Navigation Option Links in Sidebar */
+            /* Unselected Navigation Option Buttons */
             div[data-testid="stRadio"] div[role="radiogroup"] label {
+                background-color: #ffffff !important;
                 background: #ffffff !important;
                 border: 1.5px solid #cbd5e1 !important;
             }
-            div[data-testid="stRadio"] div[role="radiogroup"] label * {
+
+            /* Force UNSELECTED Navigation Option Text to Dark Charcoal */
+            div[data-testid="stRadio"] div[role="radiogroup"] label:not(:has(input:checked)):not(:has(div[aria-checked="true"])) *,
+            div[data-testid="stRadio"] div[role="radiogroup"] label:not(:has(input:checked)):not(:has(div[aria-checked="true"])) div[data-testid="stMarkdownContainer"] p,
+            div[data-testid="stRadio"] div[role="radiogroup"] label:not(:has(input:checked)):not(:has(div[aria-checked="true"])) span {
                 color: #0f172a !important;
                 font-weight: 700 !important;
             }
-            div[data-testid="stRadio"] div[role="radiogroup"] label > div:first-child {
-                border-color: #64748b !important;
+
+            /* Radio Bullet Circle for Unselected */
+            div[data-testid="stRadio"] div[role="radiogroup"] label:not(:has(input:checked)):not(:has(div[aria-checked="true"])) > div:first-child {
+                border-color: #475569 !important;
+                background: transparent !important;
             }
 
-            /* Checked / Active Navigation Option */
+            /* Active / Selected Navigation Option Button */
             div[data-testid="stRadio"] div[role="radiogroup"] label:has(input:checked),
             div[data-testid="stRadio"] div[role="radiogroup"] label:has(div[aria-checked="true"]) {
                 background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
                 border-color: #2563eb !important;
             }
+
             div[data-testid="stRadio"] div[role="radiogroup"] label:has(input:checked) *,
             div[data-testid="stRadio"] div[role="radiogroup"] label:has(div[aria-checked="true"]) * {
                 color: #ffffff !important;
+                font-weight: 800 !important;
             }
 
-            /* Main Canvas & Typography */
+            /* Reset Global Filters Button in Day Mode */
+            button[key="reset_filters"],
+            div[data-testid="stSidebar"] button[key="reset_filters"] {
+                background-color: #ffffff !important;
+                background: #ffffff !important;
+                border: 1.5px solid #cbd5e1 !important;
+                color: #0f172a !important;
+                font-weight: 800 !important;
+            }
+
+            button[key="reset_filters"]:hover,
+            div[data-testid="stSidebar"] button[key="reset_filters"]:hover {
+                background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
+                border-color: #2563eb !important;
+                color: #ffffff !important;
+            }
+
+            /* Order Date Range Input Box in Day Mode */
+            div[data-baseweb="input"],
+            div[data-baseweb="input"] > div {
+                background-color: #ffffff !important;
+                background: #ffffff !important;
+                border: 1.5px solid #cbd5e1 !important;
+                border-radius: 10px !important;
+            }
+
+            div[data-baseweb="input"] input {
+                color: #0f172a !important;
+                font-weight: 700 !important;
+                background-color: transparent !important;
+            }
+
+            /* Department Selectbox Dropdown in Day Mode */
+            div[data-baseweb="select"],
+            div[data-baseweb="select"] > div {
+                background-color: #ffffff !important;
+                background: #ffffff !important;
+                border: 1.5px solid #cbd5e1 !important;
+                border-radius: 10px !important;
+            }
+
+            div[data-baseweb="select"] *,
+            div[data-baseweb="select"] span,
+            div[data-baseweb="select"] div {
+                color: #0f172a !important;
+                font-weight: 700 !important;
+            }
+
+            /* Dropdown Menu Items in Day Mode */
+            div[data-baseweb="popover"] *,
+            div[data-baseweb="menu"] * {
+                background-color: #ffffff !important;
+                color: #0f172a !important;
+            }
+
+            /* Main Page Canvas & Cards */
             .stApp {
                 background-color: #e2e8f0 !important;
                 color: #0f172a !important;
             }
-            .section-header {
-                color: #0f172a !important;
-            }
-            .section-subheader {
-                color: #334155 !important;
-            }
 
-            /* Crisp White Metric Cards in Day Mode */
-            .metric-card {
+            .metric-card,
+            .glass-container,
+            .insight-card {
                 background: #ffffff !important;
                 background-color: #ffffff !important;
                 border: 1.5px solid #cbd5e1 !important;
                 box-shadow: 0 4px 18px rgba(15, 23, 42, 0.08) !important;
             }
+
             .metric-card .metric-title {
                 color: #475569 !important;
                 font-weight: 700 !important;
             }
+
             .metric-card .metric-value {
                 color: #0f172a !important;
                 font-weight: 800 !important;
             }
-            .metric-card .badge-positive {
-                background-color: rgba(16, 185, 129, 0.12) !important;
-                color: #047857 !important;
-                border: 1px solid rgba(16, 185, 129, 0.3) !important;
-            }
-            .metric-card .badge-negative {
-                background-color: rgba(239, 68, 68, 0.12) !important;
-                color: #dc2626 !important;
-                border: 1px solid rgba(239, 68, 68, 0.3) !important;
-            }
 
-            /* Glass Container & Insight Callouts */
-            .glass-container,
-            .insight-card {
-                background: #ffffff !important;
-                border: 1.5px solid #cbd5e1 !important;
-                box-shadow: 0 4px 18px rgba(15, 23, 42, 0.08) !important;
-            }
-            .insight-title {
+            .section-header {
                 color: #0f172a !important;
             }
-            .insight-text {
+
+            .section-subheader {
                 color: #334155 !important;
             }
 
@@ -170,7 +222,7 @@ def apply_theme(theme_mode="🌙 Night"):
     else:
         st.markdown("""
         <style>
-            /* Header Bar Match Canvas */
+            /* Night Mode Global Overrides */
             header[data-testid="stHeader"],
             div[data-testid="stHeader"],
             .stAppHeader {
@@ -178,86 +230,136 @@ def apply_theme(theme_mode="🌙 Night"):
                 background: #090d16 !important;
             }
 
-            /* Sidebar Styling */
+            /* Sidebar Panel */
             section[data-testid="stSidebar"] {
                 background-color: #0d1322 !important;
                 background-image: linear-gradient(180deg, #0d1322 0%, #090d16 100%) !important;
                 border-right: 1px solid rgba(255, 255, 255, 0.09) !important;
             }
+
+            /* Sidebar Text & Headings */
             section[data-testid="stSidebar"] *,
             section[data-testid="stSidebar"] label,
             section[data-testid="stSidebar"] p,
-            section[data-testid="stSidebar"] span {
+            section[data-testid="stSidebar"] span,
+            section[data-testid="stSidebar"] h1,
+            section[data-testid="stSidebar"] h2,
+            section[data-testid="stSidebar"] h3,
+            section[data-testid="stSidebar"] div[data-testid="stMarkdownContainer"] p {
                 color: #f8fafc !important;
             }
 
-            /* Unselected Navigation Option Links in Sidebar */
+            /* Unselected Navigation Option Buttons */
             div[data-testid="stRadio"] div[role="radiogroup"] label {
-                background: rgba(255, 255, 255, 0.04) !important;
-                border: 1px solid rgba(255, 255, 255, 0.08) !important;
+                background-color: #1e293b !important;
+                background: #1e293b !important;
+                border: 1px solid rgba(255, 255, 255, 0.1) !important;
             }
-            div[data-testid="stRadio"] div[role="radiogroup"] label * {
+
+            /* Force UNSELECTED Navigation Option Text to White */
+            div[data-testid="stRadio"] div[role="radiogroup"] label:not(:has(input:checked)):not(:has(div[aria-checked="true"])) *,
+            div[data-testid="stRadio"] div[role="radiogroup"] label:not(:has(input:checked)):not(:has(div[aria-checked="true"])) div[data-testid="stMarkdownContainer"] p,
+            div[data-testid="stRadio"] div[role="radiogroup"] label:not(:has(input:checked)):not(:has(div[aria-checked="true"])) span {
                 color: #f8fafc !important;
                 font-weight: 700 !important;
             }
 
-            /* Checked / Active Navigation Option */
+            /* Active / Selected Navigation Option Button */
             div[data-testid="stRadio"] div[role="radiogroup"] label:has(input:checked),
             div[data-testid="stRadio"] div[role="radiogroup"] label:has(div[aria-checked="true"]) {
                 background: linear-gradient(135deg, #4f46e5 0%, #0284c7 100%) !important;
                 border-color: #4f46e5 !important;
             }
+
             div[data-testid="stRadio"] div[role="radiogroup"] label:has(input:checked) *,
             div[data-testid="stRadio"] div[role="radiogroup"] label:has(div[aria-checked="true"]) * {
                 color: #ffffff !important;
+                font-weight: 800 !important;
             }
 
-            /* Main Canvas & Typography */
+            /* Reset Global Filters Button in Night Mode */
+            button[key="reset_filters"],
+            div[data-testid="stSidebar"] button[key="reset_filters"] {
+                background-color: #1e293b !important;
+                background: #1e293b !important;
+                border: 1px solid rgba(255, 255, 255, 0.14) !important;
+                color: #f8fafc !important;
+                font-weight: 800 !important;
+            }
+
+            button[key="reset_filters"]:hover,
+            div[data-testid="stSidebar"] button[key="reset_filters"]:hover {
+                background: linear-gradient(135deg, #4f46e5 0%, #0284c7 100%) !important;
+                border-color: #4f46e5 !important;
+                color: #ffffff !important;
+            }
+
+            /* Order Date Range Input Box in Night Mode */
+            div[data-baseweb="input"],
+            div[data-baseweb="input"] > div {
+                background-color: #1e293b !important;
+                background: #1e293b !important;
+                border: 1px solid rgba(255, 255, 255, 0.14) !important;
+                border-radius: 10px !important;
+            }
+
+            div[data-baseweb="input"] input {
+                color: #f8fafc !important;
+                font-weight: 700 !important;
+                background-color: transparent !important;
+            }
+
+            /* Department Selectbox Dropdown in Night Mode */
+            div[data-baseweb="select"],
+            div[data-baseweb="select"] > div {
+                background-color: #1e293b !important;
+                background: #1e293b !important;
+                border: 1px solid rgba(255, 255, 255, 0.14) !important;
+                border-radius: 10px !important;
+            }
+
+            div[data-baseweb="select"] *,
+            div[data-baseweb="select"] span,
+            div[data-baseweb="select"] div {
+                color: #f8fafc !important;
+                font-weight: 700 !important;
+            }
+
+            /* Dropdown Menu Items in Night Mode */
+            div[data-baseweb="popover"] *,
+            div[data-baseweb="menu"] * {
+                background-color: #1e293b !important;
+                color: #f8fafc !important;
+            }
+
+            /* Main Page Canvas & Cards */
             .stApp {
                 background-color: #090d16 !important;
                 color: #f8fafc !important;
             }
-            .section-header {
-                color: #f8fafc !important;
-            }
-            .section-subheader {
-                color: #94a3b8 !important;
-            }
 
-            /* Dark Metric Cards in Night Mode */
-            .metric-card {
+            .metric-card,
+            .glass-container,
+            .insight-card {
                 background: rgba(18, 26, 44, 0.85) !important;
                 background-color: rgba(18, 26, 44, 0.85) !important;
                 border: 1px solid rgba(255, 255, 255, 0.09) !important;
                 box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5) !important;
             }
+
             .metric-card .metric-title {
                 color: #94a3b8 !important;
             }
+
             .metric-card .metric-value {
                 color: #f8fafc !important;
             }
-            .metric-card .badge-positive {
-                background-color: rgba(16, 185, 129, 0.18) !important;
-                color: #34d399 !important;
-                border: 1px solid rgba(16, 185, 129, 0.35) !important;
-            }
-            .metric-card .badge-negative {
-                background-color: rgba(239, 68, 68, 0.15) !important;
-                color: #f87171 !important;
-                border: 1px solid rgba(239, 68, 68, 0.3) !important;
-            }
 
-            /* Glass Container & Insight Callouts */
-            .glass-container,
-            .insight-card {
-                background: rgba(18, 26, 44, 0.85) !important;
-                border: 1px solid rgba(255, 255, 255, 0.09) !important;
-            }
-            .insight-title {
+            .section-header {
                 color: #f8fafc !important;
             }
-            .insight-text {
+
+            .section-subheader {
                 color: #94a3b8 !important;
             }
         </style>
