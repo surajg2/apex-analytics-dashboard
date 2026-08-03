@@ -161,16 +161,33 @@ st.sidebar.markdown("""
 """, unsafe_allow_html=True)
 st.sidebar.markdown("---")
 
-# Day / Night Theme Switcher Button
-selected_mode = st.sidebar.radio(
-    "DISPLAY MODE",
-    ["🌙 Night", "☀️ Day"],
-    index=0,
-    key="theme_mode_radio"
-)
+# Day / Night Theme Switcher Component (matches design screenshot)
+st.sidebar.markdown("<div style='font-family:Outfit, sans-serif; font-size:0.75rem; font-weight:800; letter-spacing:0.12em; color:var(--sidebar-heading); text-transform:uppercase; margin-bottom:10px;'>DISPLAY MODE</div>", unsafe_allow_html=True)
 
-st.session_state["theme_mode"] = selected_mode
-apply_theme(selected_mode)
+if "is_night_mode" not in st.session_state:
+    st.session_state["is_night_mode"] = True
+
+current_mode = "🌙 Night" if st.session_state["is_night_mode"] else "☀️ Day"
+st.session_state["theme_mode"] = current_mode
+apply_theme(current_mode)
+
+col_icon, col_text = st.sidebar.columns([1, 3])
+
+with col_icon:
+    btn_symbol = "🌙" if st.session_state["is_night_mode"] else "☀️"
+    if st.button(btn_symbol, key="toggle_theme_btn", help="Click to switch Day / Night theme mode"):
+        st.session_state["is_night_mode"] = not st.session_state["is_night_mode"]
+        st.rerun()
+
+with col_text:
+    mode_title = "Night Mode" if st.session_state["is_night_mode"] else "Day Mode"
+    mode_sub = "Executive Dark" if st.session_state["is_night_mode"] else "Crisp Light"
+    st.markdown(f"""
+    <div style="padding-top: 4px;">
+        <div style="font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 0.98rem; color: var(--text-primary);">{mode_title}</div>
+        <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 0.75rem; color: var(--text-secondary);">{mode_sub}</div>
+    </div>
+    """, unsafe_allow_html=True)
 
 st.sidebar.markdown("---")
 
