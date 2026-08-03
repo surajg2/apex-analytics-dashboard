@@ -29,7 +29,7 @@ st.set_page_config(
 )
 
 # 2. Inject CSS Styles & Dynamic Theme Engine
-def apply_theme(theme_mode="☀️ Day"):
+def apply_theme(theme_mode="🌙 Night"):
     is_day = "Day" in str(theme_mode) or "☀️" in str(theme_mode)
     theme_class = "theme-day" if is_day else "theme-night"
     
@@ -52,12 +52,42 @@ def apply_theme(theme_mode="☀️ Day"):
         st.markdown("""
         <style>
             section[data-testid="stSidebar"] {
-                background-color: #ffffff !important;
-                background-image: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%) !important;
+                background-color: #f8fafc !important;
+                background-image: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%) !important;
             }
             .stApp {
-                background-color: #f8fafc !important;
+                background-color: #e2e8f0 !important;
                 color: #0f172a !important;
+            }
+            .stApp *,
+            .stMarkdown,
+            .stMarkdown p,
+            .stMarkdown span,
+            .stMarkdown strong,
+            h1, h2, h3, h4, h5, h6,
+            label,
+            div[data-testid="stMarkdownContainer"] *,
+            div[data-baseweb="select"] *,
+            input, select, textarea,
+            .dataframe *,
+            .metric-value,
+            .metric-title,
+            .section-header,
+            .section-subheader,
+            .insight-title,
+            .insight-text,
+            div[data-testid="stCaptionContainer"] *,
+            div[data-testid="stRadio"] label span,
+            div[data-testid="stRadio"] label p,
+            .stSelectbox label,
+            .stDateInput label,
+            .stMultiSelect label,
+            .stSlider label {
+                color: #0f172a !important;
+            }
+            div[data-testid="stRadio"] div[role="radiogroup"] label:has(input:checked) div[data-testid="stMarkdownContainer"] p,
+            div[data-testid="stRadio"] div[role="radiogroup"] label:has(div[aria-checked="true"]) div[data-testid="stMarkdownContainer"] p {
+                color: #ffffff !important;
             }
             .js-plotly-plot .plotly .main-svg text,
             .js-plotly-plot .plotly .gtitle,
@@ -70,10 +100,10 @@ def apply_theme(theme_mode="☀️ Day"):
             .js-plotly-plot .plotly .slicetext {
                 fill: #0f172a !important;
                 color: #0f172a !important;
-                font-weight: 600 !important;
+                font-weight: 700 !important;
             }
             .js-plotly-plot .plotly .gridlayer path {
-                stroke: rgba(15, 23, 42, 0.12) !important;
+                stroke: rgba(15, 23, 42, 0.18) !important;
             }
         </style>
         """, unsafe_allow_html=True)
@@ -134,7 +164,8 @@ st.sidebar.markdown("---")
 # Day / Night Theme Switcher Button
 selected_mode = st.sidebar.radio(
     "DISPLAY MODE",
-    ["☀️ Day", "🌙 Night"],
+    ["🌙 Night", "☀️ Day"],
+    index=0,
     key="theme_mode_radio"
 )
 

@@ -102,40 +102,40 @@
     --button-border: rgba(255, 255, 255, 0.14);
 }
 
-/* --- ☀️ DAY MODE (BRIGHT VIBRANT LIGHT) --- */
+/* --- ☀️ DAY MODE (SOFT EASY-ON-EYES LIGHT) --- */
 .theme-day {
-    --bg-main: #f8fafc;
-    --bg-sidebar: #ffffff;
+    --bg-main: #e2e8f0;
+    --bg-sidebar: #f8fafc;
     --bg-card: #ffffff;
-    --bg-card-hover: #f1f5f9;
+    --bg-card-hover: #ffffff;
     --border-card: #cbd5e1;
     --border-card-hover: #2563eb;
-    --shadow-card: 0 6px 24px rgba(15, 23, 42, 0.08);
-    --text-primary: #090d16;
-    --text-secondary: #1e293b;
+    --shadow-card: 0 4px 18px rgba(15, 23, 42, 0.08);
+    --text-primary: #0f172a;
+    --text-secondary: #334155;
     --text-muted: #475569;
     --accent-primary: #2563eb;
     --accent-secondary: #4f46e5;
     --accent-emerald: #059669;
-    --badge-pos-bg: rgba(37, 99, 235, 0.12);
-    --badge-pos-text: #1d4ed8;
-    --badge-pos-border: rgba(37, 99, 235, 0.3);
-    --tab-bg: #e2e8f0;
+    --badge-pos-bg: rgba(5, 150, 105, 0.12);
+    --badge-pos-text: #047857;
+    --badge-pos-border: rgba(5, 150, 105, 0.3);
+    --tab-bg: #cbd5e1;
     --tab-active-bg: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-    --header-bg: rgba(255, 255, 255, 0.95);
+    --header-bg: rgba(226, 232, 240, 0.95);
     --brand-gradient: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
-    --sidebar-text: #090d16;
+    --sidebar-text: #0f172a;
     --sidebar-heading: #0f172a;
-    --nav-item-bg: #f1f5f9;
+    --nav-item-bg: #ffffff;
     --nav-item-border: #cbd5e1;
-    --nav-item-text: #090d16;
+    --nav-item-text: #0f172a;
     --nav-item-hover-bg: #2563eb;
     --nav-item-hover-text: #ffffff;
-    --nav-bullet-border: #64748b;
-    --brand-text-color: #090d16;
+    --nav-bullet-border: #475569;
+    --brand-text-color: #0f172a;
     --brand-sub-color: #334155;
-    --button-bg: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
-    --button-text: #090d16;
+    --button-bg: #ffffff;
+    --button-text: #0f172a;
     --button-border: #94a3b8;
 }
 
