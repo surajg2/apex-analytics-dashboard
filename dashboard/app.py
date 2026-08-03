@@ -51,44 +51,104 @@ def apply_theme(theme_mode="🌙 Night"):
     if is_day:
         st.markdown("""
         <style>
+            /* Header Bar Match Canvas */
+            header[data-testid="stHeader"],
+            div[data-testid="stHeader"],
+            .stAppHeader {
+                background-color: #e2e8f0 !important;
+                background: #e2e8f0 !important;
+            }
+
+            /* Sidebar Styling */
             section[data-testid="stSidebar"] {
                 background-color: #f8fafc !important;
                 background-image: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%) !important;
+                border-right: 1px solid #cbd5e1 !important;
             }
+            section[data-testid="stSidebar"] *,
+            section[data-testid="stSidebar"] label,
+            section[data-testid="stSidebar"] p,
+            section[data-testid="stSidebar"] span {
+                color: #0f172a !important;
+            }
+
+            /* Unselected Navigation Option Links in Sidebar */
+            div[data-testid="stRadio"] div[role="radiogroup"] label {
+                background: #ffffff !important;
+                border: 1.5px solid #cbd5e1 !important;
+            }
+            div[data-testid="stRadio"] div[role="radiogroup"] label * {
+                color: #0f172a !important;
+                font-weight: 700 !important;
+            }
+            div[data-testid="stRadio"] div[role="radiogroup"] label > div:first-child {
+                border-color: #64748b !important;
+            }
+
+            /* Checked / Active Navigation Option */
+            div[data-testid="stRadio"] div[role="radiogroup"] label:has(input:checked),
+            div[data-testid="stRadio"] div[role="radiogroup"] label:has(div[aria-checked="true"]) {
+                background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
+                border-color: #2563eb !important;
+            }
+            div[data-testid="stRadio"] div[role="radiogroup"] label:has(input:checked) *,
+            div[data-testid="stRadio"] div[role="radiogroup"] label:has(div[aria-checked="true"]) * {
+                color: #ffffff !important;
+            }
+
+            /* Main Canvas & Typography */
             .stApp {
                 background-color: #e2e8f0 !important;
                 color: #0f172a !important;
             }
-            .stApp *,
-            .stMarkdown,
-            .stMarkdown p,
-            .stMarkdown span,
-            .stMarkdown strong,
-            h1, h2, h3, h4, h5, h6,
-            label,
-            div[data-testid="stMarkdownContainer"] *,
-            div[data-baseweb="select"] *,
-            input, select, textarea,
-            .dataframe *,
-            .metric-value,
-            .metric-title,
-            .section-header,
-            .section-subheader,
-            .insight-title,
-            .insight-text,
-            div[data-testid="stCaptionContainer"] *,
-            div[data-testid="stRadio"] label span,
-            div[data-testid="stRadio"] label p,
-            .stSelectbox label,
-            .stDateInput label,
-            .stMultiSelect label,
-            .stSlider label {
+            .section-header {
                 color: #0f172a !important;
             }
-            div[data-testid="stRadio"] div[role="radiogroup"] label:has(input:checked) div[data-testid="stMarkdownContainer"] p,
-            div[data-testid="stRadio"] div[role="radiogroup"] label:has(div[aria-checked="true"]) div[data-testid="stMarkdownContainer"] p {
-                color: #ffffff !important;
+            .section-subheader {
+                color: #334155 !important;
             }
+
+            /* Crisp White Metric Cards in Day Mode */
+            .metric-card {
+                background: #ffffff !important;
+                background-color: #ffffff !important;
+                border: 1.5px solid #cbd5e1 !important;
+                box-shadow: 0 4px 18px rgba(15, 23, 42, 0.08) !important;
+            }
+            .metric-card .metric-title {
+                color: #475569 !important;
+                font-weight: 700 !important;
+            }
+            .metric-card .metric-value {
+                color: #0f172a !important;
+                font-weight: 800 !important;
+            }
+            .metric-card .badge-positive {
+                background-color: rgba(16, 185, 129, 0.12) !important;
+                color: #047857 !important;
+                border: 1px solid rgba(16, 185, 129, 0.3) !important;
+            }
+            .metric-card .badge-negative {
+                background-color: rgba(239, 68, 68, 0.12) !important;
+                color: #dc2626 !important;
+                border: 1px solid rgba(239, 68, 68, 0.3) !important;
+            }
+
+            /* Glass Container & Insight Callouts */
+            .glass-container,
+            .insight-card {
+                background: #ffffff !important;
+                border: 1.5px solid #cbd5e1 !important;
+                box-shadow: 0 4px 18px rgba(15, 23, 42, 0.08) !important;
+            }
+            .insight-title {
+                color: #0f172a !important;
+            }
+            .insight-text {
+                color: #334155 !important;
+            }
+
+            /* Plotly Charts Text */
             .js-plotly-plot .plotly .main-svg text,
             .js-plotly-plot .plotly .gtitle,
             .js-plotly-plot .plotly .xtick text,
@@ -104,6 +164,101 @@ def apply_theme(theme_mode="🌙 Night"):
             }
             .js-plotly-plot .plotly .gridlayer path {
                 stroke: rgba(15, 23, 42, 0.18) !important;
+            }
+        </style>
+        """, unsafe_allow_html=True)
+    else:
+        st.markdown("""
+        <style>
+            /* Header Bar Match Canvas */
+            header[data-testid="stHeader"],
+            div[data-testid="stHeader"],
+            .stAppHeader {
+                background-color: #090d16 !important;
+                background: #090d16 !important;
+            }
+
+            /* Sidebar Styling */
+            section[data-testid="stSidebar"] {
+                background-color: #0d1322 !important;
+                background-image: linear-gradient(180deg, #0d1322 0%, #090d16 100%) !important;
+                border-right: 1px solid rgba(255, 255, 255, 0.09) !important;
+            }
+            section[data-testid="stSidebar"] *,
+            section[data-testid="stSidebar"] label,
+            section[data-testid="stSidebar"] p,
+            section[data-testid="stSidebar"] span {
+                color: #f8fafc !important;
+            }
+
+            /* Unselected Navigation Option Links in Sidebar */
+            div[data-testid="stRadio"] div[role="radiogroup"] label {
+                background: rgba(255, 255, 255, 0.04) !important;
+                border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            }
+            div[data-testid="stRadio"] div[role="radiogroup"] label * {
+                color: #f8fafc !important;
+                font-weight: 700 !important;
+            }
+
+            /* Checked / Active Navigation Option */
+            div[data-testid="stRadio"] div[role="radiogroup"] label:has(input:checked),
+            div[data-testid="stRadio"] div[role="radiogroup"] label:has(div[aria-checked="true"]) {
+                background: linear-gradient(135deg, #4f46e5 0%, #0284c7 100%) !important;
+                border-color: #4f46e5 !important;
+            }
+            div[data-testid="stRadio"] div[role="radiogroup"] label:has(input:checked) *,
+            div[data-testid="stRadio"] div[role="radiogroup"] label:has(div[aria-checked="true"]) * {
+                color: #ffffff !important;
+            }
+
+            /* Main Canvas & Typography */
+            .stApp {
+                background-color: #090d16 !important;
+                color: #f8fafc !important;
+            }
+            .section-header {
+                color: #f8fafc !important;
+            }
+            .section-subheader {
+                color: #94a3b8 !important;
+            }
+
+            /* Dark Metric Cards in Night Mode */
+            .metric-card {
+                background: rgba(18, 26, 44, 0.85) !important;
+                background-color: rgba(18, 26, 44, 0.85) !important;
+                border: 1px solid rgba(255, 255, 255, 0.09) !important;
+                box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5) !important;
+            }
+            .metric-card .metric-title {
+                color: #94a3b8 !important;
+            }
+            .metric-card .metric-value {
+                color: #f8fafc !important;
+            }
+            .metric-card .badge-positive {
+                background-color: rgba(16, 185, 129, 0.18) !important;
+                color: #34d399 !important;
+                border: 1px solid rgba(16, 185, 129, 0.35) !important;
+            }
+            .metric-card .badge-negative {
+                background-color: rgba(239, 68, 68, 0.15) !important;
+                color: #f87171 !important;
+                border: 1px solid rgba(239, 68, 68, 0.3) !important;
+            }
+
+            /* Glass Container & Insight Callouts */
+            .glass-container,
+            .insight-card {
+                background: rgba(18, 26, 44, 0.85) !important;
+                border: 1px solid rgba(255, 255, 255, 0.09) !important;
+            }
+            .insight-title {
+                color: #f8fafc !important;
+            }
+            .insight-text {
+                color: #94a3b8 !important;
             }
         </style>
         """, unsafe_allow_html=True)
