@@ -455,7 +455,7 @@ page = st.sidebar.radio(
         "📊 Executive KPI Overview",
         "📈 Sales & Payment Analytics",
         "👥 Customer RFM & Cohorts",
-        "📦 Product & Inventory Analytics",
+        "📦 Product & Inventory",
         "💻 Interactive SQL Studio",
         "🤖 ML Revenue Forecasting",
         "💡 Strategic Business Insights"
