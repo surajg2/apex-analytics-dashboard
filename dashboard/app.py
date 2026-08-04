@@ -200,7 +200,7 @@ def apply_theme(theme_mode="🌙 Night"):
                 color: #334155 !important;
             }
 
-            /* Plotly Charts Text */
+            /* Plotly Charts Text & Hover Tooltips in Day Mode */
             .js-plotly-plot .plotly .main-svg text,
             .js-plotly-plot .plotly .gtitle,
             .js-plotly-plot .plotly .xtick text,
@@ -216,6 +216,20 @@ def apply_theme(theme_mode="🌙 Night"):
             }
             .js-plotly-plot .plotly .gridlayer path {
                 stroke: rgba(15, 23, 42, 0.18) !important;
+            }
+            .js-plotly-plot .plotly .hoverlayer path,
+            .js-plotly-plot .plotly .hoverlayer rect {
+                fill: #ffffff !important;
+                fill-opacity: 0.98 !important;
+                stroke: #cbd5e1 !important;
+                stroke-width: 1.5px !important;
+            }
+            .js-plotly-plot .plotly .hoverlayer text,
+            .js-plotly-plot .plotly .hoverlayer text tspan,
+            .js-plotly-plot .plotly .hoverlayer .hovertext {
+                fill: #0f172a !important;
+                color: #0f172a !important;
+                font-weight: 700 !important;
             }
         </style>
         """, unsafe_allow_html=True)
@@ -361,6 +375,22 @@ def apply_theme(theme_mode="🌙 Night"):
 
             .section-subheader {
                 color: #94a3b8 !important;
+            }
+
+            /* Plotly Charts Hover Tooltips in Night Mode */
+            .js-plotly-plot .plotly .hoverlayer path,
+            .js-plotly-plot .plotly .hoverlayer rect {
+                fill: #1e293b !important;
+                fill-opacity: 0.95 !important;
+                stroke: rgba(255, 255, 255, 0.18) !important;
+                stroke-width: 1px !important;
+            }
+            .js-plotly-plot .plotly .hoverlayer text,
+            .js-plotly-plot .plotly .hoverlayer text tspan,
+            .js-plotly-plot .plotly .hoverlayer .hovertext {
+                fill: #f8fafc !important;
+                color: #f8fafc !important;
+                font-weight: 700 !important;
             }
         </style>
         """, unsafe_allow_html=True)

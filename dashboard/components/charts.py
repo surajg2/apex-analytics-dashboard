@@ -50,8 +50,12 @@ def update_dark_layout(fig, title: str = None, height: int = 400):
 
     template = "plotly_white" if is_light else "plotly_dark"
     title_color = "#0f172a" if is_light else "#f8fafc"
-    font_color = "#334155" if is_light else "#94a3b8"
-    grid_color = "rgba(15, 23, 42, 0.08)" if is_light else "rgba(255, 255, 255, 0.06)"
+    font_color = "#0f172a" if is_light else "#94a3b8"
+    grid_color = "rgba(15, 23, 42, 0.12)" if is_light else "rgba(255, 255, 255, 0.06)"
+
+    hover_bg = "#ffffff" if is_light else "#1e293b"
+    hover_font_color = "#0f172a" if is_light else "#ffffff"
+    hover_border_color = "#cbd5e1" if is_light else "#475569"
 
     fig.update_layout(
         template=template,
@@ -61,10 +65,10 @@ def update_dark_layout(fig, title: str = None, height: int = 400):
         margin=dict(l=20, r=20, t=50 if title else 20, b=20),
         title=dict(
             text=title if title else "",
-            font=dict(size=16, family="Inter", color=title_color),
+            font=dict(size=16, family="Plus Jakarta Sans, Inter", color=title_color),
             x=0.01, y=0.96
         ) if title else None,
-        font=dict(family="Inter", color=font_color),
+        font=dict(family="Plus Jakarta Sans, Inter", color=font_color),
         xaxis=dict(gridcolor=grid_color, showline=False, tickfont=dict(color=font_color), title_font=dict(color=font_color)),
         yaxis=dict(gridcolor=grid_color, showline=False, tickfont=dict(color=font_color), title_font=dict(color=font_color)),
         legend=dict(
@@ -75,6 +79,13 @@ def update_dark_layout(fig, title: str = None, height: int = 400):
             x=1,
             bgcolor="rgba(0,0,0,0)",
             font=dict(color=font_color)
+        ),
+        hoverlabel=dict(
+            bgcolor=hover_bg,
+            font_size=13,
+            font_family="Plus Jakarta Sans, Inter, sans-serif",
+            font_color=hover_font_color,
+            bordercolor=hover_border_color
         )
     )
     return fig
