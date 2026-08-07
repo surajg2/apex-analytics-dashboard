@@ -449,13 +449,16 @@ div[data-testid="stSidebar"] button[key="toggle_theme_btn"]:hover {
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--border-card);
     border-radius: 14px;
-    padding: 20px 22px;
+    padding: 16px 18px;
     margin-bottom: 16px;
     box-shadow: var(--shadow-card);
     position: relative;
     overflow: hidden;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     animation: fadeInSlideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) ease-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 /* Hover Lift & Glow Effect for Metric Cards */
@@ -483,20 +486,27 @@ div[data-testid="stSidebar"] button[key="toggle_theme_btn"]:hover {
 .metric-title {
     font-family: 'Outfit', sans-serif;
     color: var(--text-secondary);
-    font-size: 0.82rem;
+    font-size: 0.78rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.05em;
     margin-bottom: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .metric-value {
     font-family: 'Plus Jakarta Sans', sans-serif;
     color: var(--text-primary);
-    font-size: 1.9rem;
+    font-size: clamp(1.2rem, 1.55vw, 1.68rem);
     font-weight: 800;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
     margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.2;
 }
 
 .metric-badge {
@@ -507,6 +517,11 @@ div[data-testid="stSidebar"] button[key="toggle_theme_btn"]:hover {
     border-radius: 20px;
     font-size: 0.78rem;
     font-weight: 700;
+    white-space: nowrap;
+    width: fit-content;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
     transition: transform 0.2s ease;
 }
 

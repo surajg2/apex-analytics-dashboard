@@ -14,12 +14,12 @@ def render_metric_card(title: str, value: str, delta: str = None, is_positive: b
     if delta:
         badge_class = "badge-positive" if is_positive else "badge-negative"
         trend_svg = SVG_TREND_UP if is_positive else SVG_TREND_DOWN
-        badge_html = f'<div class="metric-badge {badge_class}">{trend_svg}<span>{delta}</span></div>'
+        badge_html = f'<div class="metric-badge {badge_class}" title="{delta}">{trend_svg}<span>{delta}</span></div>'
 
     card_html = f"""
     <div class="metric-card">
-        <div class="metric-title">{title}</div>
-        <div class="metric-value">{value}</div>
+        <div class="metric-title" title="{title}">{title}</div>
+        <div class="metric-value" title="{value}">{value}</div>
         {badge_html}
     </div>
     """

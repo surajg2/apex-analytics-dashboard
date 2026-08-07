@@ -61,7 +61,7 @@ def render_executive_kpi_view(df_master: pd.DataFrame, daily_df: pd.DataFrame, r
     with col8:
         cancelled_count = df_master[df_master["order_status"] == "Cancelled"]["order_id"].nunique()
         cancel_rate = (cancelled_count / df_master["order_id"].nunique() * 100) if df_master["order_id"].nunique() > 0 else 0
-        render_metric_card("Order Cancel Rate", f"{cancel_rate:.2f}%", "SLA SLA Benchmark", is_positive=cancel_rate <= 3.0)
+        render_metric_card("Order Cancel Rate", f"{cancel_rate:.2f}%", "SLA Benchmark", is_positive=cancel_rate <= 3.0)
 
     st.markdown("---")
 
